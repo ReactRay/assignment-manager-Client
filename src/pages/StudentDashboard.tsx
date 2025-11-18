@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import AssignmentList from "../components/student-dashboard/AssignmentList";
+import AssignmentTable from "../components/student-dashboard/AssignmentTable";
 import { getAssignments } from "../api/assignmentApi";
 import { getMySubmissions } from "../api/submissionsApi";
 
@@ -53,7 +53,7 @@ export default function StudentDashboard() {
     return (
         <section style={{ padding: "20px" }}>
             <h2>Your Assignments</h2>
-            <AssignmentList assignments={mergedData} />
+            <AssignmentTable assignments={mergedData} />
         </section>
     );
 }
