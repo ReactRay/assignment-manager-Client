@@ -1,0 +1,123 @@
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 8%;
+    min-height: 90vh;
+}
+
+.home-left {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.home-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: var(--blue-main);
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+}
+
+.home-sub {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.home-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+/* Primary button (blue) */
+.btn-primary {
+    background: var(--blue-main);
+    color: white;
+}
+
+.btn-primary:hover {
+    opacity: 0.85;
+}
+
+/* Secondary button (outline) */
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--blue-main);
+    color: var(--blue-main);
+}
+
+.btn-secondary:hover {
+    background: var(--blue-main);
+    color: white;
+}
+
+.home-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.home-image {
+    width: 90%;
+    max-width: 480px;
+    object-fit: contain;
+}
+
+/* ======================= */
+/* RESPONSIVE DESIGN */
+/* ======================= */
+
+@media (max-width: 900px) {
+    .home-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 5%;
+    }
+
+    .home-left {
+        padding-right: 0;
+    }
+
+    .home-buttons {
+        justify-content: center;
+    }
+
+    .home-right {
+        margin-top: 2rem;
+    }
+
+    .home-title {
+        font-size: 2.4rem;
+    }
+
+    .home-image {
+        width: 75%;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-title {
+        font-size: 2rem;
+    }
+
+    .home-sub {
+        font-size: 1rem;
+    }
+
+    .home-image {
+        width: 90%;
+    }
+}

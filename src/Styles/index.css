@@ -1,0 +1,7 @@
+@import './global.css';
+@import './variables.css';
+@import './layout.css';
+@import './pages/home.css';
+@import './components/navbar.css';
+@import './components/FancyButton.css';
+@import './components/Footer.css';
