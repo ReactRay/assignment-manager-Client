@@ -1,28 +1,25 @@
 import AssignmentRow from "./AssignmentRow";
 
-interface Props {
-    assignments: any[];
-}
-
-export default function AssignmentTable({ assignments }: Props) {
+export default function AssignmentTable({ assignments, refresh }: any) {
     return (
-        <table className="assignment-table">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Teacher</th>
-                    <th>Due Date</th>
-                    <th>Status</th>
-                    <th>Grade</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+        <div className="table-container">
+            <table className="assignment-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Teacher</th>
+                        <th>Due</th>
+                        <th>Status</th>
+                        <th>Submit</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                {assignments.map((a) => (
-                    <AssignmentRow key={a.id} assignment={a} />
-                ))}
-            </tbody>
-        </table>
+                <tbody>
+                    {assignments.map((a) => (
+                        <AssignmentRow key={a.id} assignment={a} refresh={refresh} />
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }

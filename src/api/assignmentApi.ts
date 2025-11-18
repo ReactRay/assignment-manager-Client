@@ -1,7 +1,7 @@
 import api from "./axiosClient";
 
 // Get ALL assignments (Student or Teacher)
-export const getAssignments = () => api.get("/Assignments");
+export const getAllAssignments = () => api.get("/Assignments");
 
 // Get ONE assignment by ID (for later)
 export const getAssignmentById = (id: string) =>

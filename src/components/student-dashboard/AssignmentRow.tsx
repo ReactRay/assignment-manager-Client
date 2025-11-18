@@ -1,40 +1,29 @@
 import { useState } from "react";
 import SubmissionStatusBadge from "./SubmissionBadge";
 import SubmitModal from "./SubmitModal";
-export default function AssignmentRow({ assignment }: any) {
-    const submission = assignment.submission;
 
+export default function AssignmentRow({ assignment, refresh }: any) {
     const [open, setOpen] = useState(false);
 
     return (
         <>
             <tr>
-                <td data-label="Title">{assignment.title}</td>
+                <td>{assignment.title}</td>
+                <td>{assignment.teacherName}</td>
+                <td>{new Date(assignment.dueDate).toLocaleDateString()}</td>
 
-                <td data-label="Teacher">{assignment.teacherName}</td>
-
-                <td data-label="Due Date">
-                    {new Date(assignment.dueDate).toLocaleDateString()}
-                </td>
-
-                <td data-label="Status">
+                <td>
                     <SubmissionStatusBadge
-                        status={submission.status}
-                        grade={submission.grade}
+                        status={assignment.submission.status}
+                        grade={assignment.submission.grade}
                     />
                 </td>
 
-                <td data-label="Grade">
-                    {submission.grade ?? "-"}
-                </td>
-
-                <td data-label="Action">
-                    <button
-                        className="submit-btn"
-                        onClick={() => setOpen(true)}
-                    >
-                        {submission.status === "Missing" ? "Submit" : "Update"}
+                <td>
+                    <button className="submit-btn" onClick={() => setOpen(true)}>
+                        Submit
                     </button>
+
                 </td>
             </tr>
 
@@ -42,6 +31,7 @@ export default function AssignmentRow({ assignment }: any) {
                 <SubmitModal
                     assignment={assignment}
                     close={() => setOpen(false)}
+                    refresh={refresh}
                 />
             )}
         </>
