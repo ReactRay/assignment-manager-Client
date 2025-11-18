@@ -1,14 +1,16 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-interface Props {
-    children: React.ReactNode;
-}
-
-export default function PublicRoute({ children }: Props) {
+export default function PublicRoute({ children }: any) {
     const { isAuthenticated, user } = useSelector((state: any) => state.auth);
+    const location = useLocation();
 
-    if (isAuthenticated && user) {
+    const path = location.pathname;
+
+    // Only enforce redirect ON login/register
+    const isAuthPage = path === "/login" || path === "/register";
+
+    if (isAuthenticated && isAuthPage) {
         const role = user.roles[0];
 
         if (role === "Student") return <Navigate to="/student" replace />;

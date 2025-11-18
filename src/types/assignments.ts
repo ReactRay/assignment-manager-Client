@@ -21,3 +21,17 @@ export interface UpdateAssignmentDto {
     description: string;
     dueDate: string;
 }
+
+export interface StudentAssignment {
+    id: string;
+    title: string;
+    description: string;
+    dueDate: string;
+    teacherName: string;
+
+    submission: {
+        status: "Missing" | "Submitted" | "Graded";
+        grade: number | null;
+        submittedAt: string | null;
+    };
+}

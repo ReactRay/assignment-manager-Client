@@ -9,6 +9,7 @@ import TeacherDashboard from "./pages/TeacherDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
+import NotAuthorized from "./pages/NotAuthorized";
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
         <Route
           path="/student"
           element={
-            <ProtectedRoute allowedRoles={["Student"]}>
+            <ProtectedRoute allowedRoles={["Student", "Admin"]}>
               <StudentDashboard />
             </ProtectedRoute>
           }
@@ -68,6 +69,7 @@ function App() {
           }
         />
 
+        <Route path="/not-authorized" element={<NotAuthorized />} />
       </Routes>
 
       <Footer />
