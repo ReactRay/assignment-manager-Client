@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginThunk } from "../redux/auth/authThunks";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../actions/authActions";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -13,20 +13,7 @@ export default function Login() {
     const { status, error } = useSelector((state: any) => state.auth);
 
     const handleLogin = () => {
-        if (!email || !password) return;
-
-        dispatch(loginThunk({ email, password }))
-            .unwrap()
-            .then((res) => {
-                const role = res.user.roles[0];
-
-                if (role === "Student") navigate("/student");
-                else if (role === "Teacher") navigate("/teacher");
-                else if (role === "Admin") navigate("/admin");
-            })
-            .catch(() => {
-                // error handled by redux state
-            });
+        dispatch(loginUser(email, password, navigate) as any);
     };
 
     return (

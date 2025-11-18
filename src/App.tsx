@@ -8,8 +8,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
-
-
+import PublicRoute from "./components/PublicRoute";
 
 function App() {
   return (
@@ -18,14 +17,58 @@ function App() {
 
       <Routes>
 
+        {/* PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/student" element={<ProtectedRoute><StudentDashboard /></ProtectedRoute>} />
-        <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-        <Route path="/teacher" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
-      </Routes>
 
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+
+        {/* STUDENT ONLY */}
+        <Route
+          path="/student"
+          element={
+            <ProtectedRoute allowedRoles={["Student"]}>
+              <StudentDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* TEACHER ONLY */}
+        <Route
+          path="/teacher"
+          element={
+            <ProtectedRoute allowedRoles={["Teacher", "Admin"]}>
+              <TeacherDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* ADMIN ONLY */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute allowedRoles={["Admin"]}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+      </Routes>
 
       <Footer />
     </>
