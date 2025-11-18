@@ -75,6 +75,18 @@
     font-weight: 600;
 }
 
+.logout-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #d9534f;
+}
+
+.logout-btn:hover {
+    color: #b52b27;
+}
+
 /*** RESPONSIVE BEHAVIOR ***/
 @media (max-width: 768px) {
     .nav-links {
