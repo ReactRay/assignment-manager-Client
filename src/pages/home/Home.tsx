@@ -1,6 +1,7 @@
 import "./home.css";
 import mainImage from "/main3.png";
 import FancyButton from "../../components/UI/FancyButton";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
@@ -16,8 +17,15 @@ export default function Home() {
                 </p>
 
                 <div className="home-buttons">
-                    <FancyButton text="Read more" />
-                    <FancyButton text="Get Started" />
+                    <Link to='/admin'>
+                        <FancyButton text="Get Started" />
+                    </Link>
+
+                    <Link to="/login">
+                        <FancyButton text="How to use" />
+                    </Link>
+
+
                 </div>
             </div>
 
