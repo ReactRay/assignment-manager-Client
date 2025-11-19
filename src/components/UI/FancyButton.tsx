@@ -1,4 +1,4 @@
-import "./FancyButton.css";
+import "./fancyButton.css";
 import { FiArrowRight } from "react-icons/fi";
 
 interface FancyButtonProps {
