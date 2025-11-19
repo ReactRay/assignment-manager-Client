@@ -18,3 +18,4 @@ export const updateAssignment = (id: string, data: any) =>
 // (Teacher only) Delete assignment
 export const deleteAssignment = (id: string) =>
     api.delete(`/Assignments/${id}`);
+
