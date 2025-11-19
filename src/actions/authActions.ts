@@ -13,14 +13,36 @@ export const loginUser =
             dispatch(loginThunk({ email, password }))
                 .unwrap()
                 .then((res) => {
-                    const rawRole = res.user.roles[0];
-                    const role = rawRole as UserRole; // <-- FIXED
+                    // Get raw role
+                    const rawRole: string = res.user.roles?.[0] ?? "Student";
 
+                    // Normalize casing (e.g., admin → Admin)
+                    const normalized =
+                        rawRole.charAt(0).toUpperCase() +
+                        rawRole.slice(1).toLowerCase();
+
+                    // Allowed roles
+                    const allowedRoles: UserRole[] = [
+                        "Admin",
+                        "Teacher",
+                        "Student",
+                    ];
+
+                    // Safe validated role
+                    const role: UserRole = allowedRoles.includes(
+                        normalized as UserRole
+                    )
+                        ? (normalized as UserRole)
+                        : "Student";
+
+                    // Navigate based on role
                     if (role === "Student") navigate("/student");
                     else if (role === "Teacher") navigate("/teacher");
                     else if (role === "Admin") navigate("/admin");
                 })
-                .catch(() => { });
+                .catch(() => {
+                    // Error handled by Redux
+                });
         };
 
 export const registerUser =
@@ -34,10 +56,24 @@ export const registerUser =
         (dispatch: AppDispatch) => {
             if (!fullName || !email || !password || !role) return;
 
-            dispatch(registerThunk({ fullName, email, password, role }))
+            // Normalize and cast the role
+            const normalizedRole =
+                (role.charAt(0).toUpperCase() + role.slice(1).toLowerCase()) as
+                "Admin" | "Teacher" | "Student";
+
+            dispatch(
+                registerThunk({
+                    fullName,
+                    email,
+                    password,
+                    role: normalizedRole,  // <-- FIXED!
+                })
+            )
                 .unwrap()
                 .then(() => {
-                    navigate("/login"); // on success → login page
+                    navigate("/login");
                 })
-                .catch(() => { });
+                .catch(() => {
+                    // handled in redux
+                });
         };
