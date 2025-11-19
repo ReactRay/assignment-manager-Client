@@ -1,0 +1,62 @@
+/* =========================================
+   STUDENT ASSIGNMENT TABLE
+   NAMESPACE: studentassign-
+========================================= */
+
+/* Wrapper (adds scroll on mobile) */
+.studentassign-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: var(--space-4);
+}
+
+/* Main table */
+.studentassign-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    min-width: 900px;
+    /* ensures columns don’t squish */
+}
+
+/* Table Header */
+.studentassign-table thead {
+    background: var(--blue-main);
+    color: white;
+}
+
+.studentassign-table th {
+    padding: var(--space-4);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Table Cells */
+.studentassign-table td {
+    padding: var(--space-4);
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Hover Row */
+.studentassign-table tbody tr:hover {
+    background: var(--blue-lighter);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+
+    .studentassign-table th,
+    .studentassign-table td {
+        padding: var(--space-3);
+        font-size: 0.8rem;
+    }
+
+    .studentassign-table {
+        min-width: 700px;
+    }
+}

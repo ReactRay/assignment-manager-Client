@@ -1,14 +1,15 @@
-import "./assignmentTable.css";
+import "./studentDashboardStyles/assignmentTable.css";
 import type { AssignmentResponseDto } from "../../types/assignments";
 import AssignmentRow from "./AssignmentRow";
 
 export default function AssignmentTable({ assignments, refresh }: any) {
     return (
-        <div className="table-container">
-            <table className="assignment-table">
+        <div className="studentassign-table-wrapper">
+            <table className="studentassign-table">
                 <thead>
                     <tr>
                         <th>Title</th>
+                        <th>Description</th>
                         <th>Teacher</th>
                         <th>Due</th>
                         <th>Status</th>

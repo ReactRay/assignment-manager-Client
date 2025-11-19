@@ -1,0 +1,105 @@
+/* =========================================
+   SUBMIT MODAL (NAMESPACE: submitmodal-)
+========================================= */
+
+.submitmodal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.submitmodal-box {
+    width: 100%;
+    max-width: 450px;
+    background: var(--white);
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: fadeUp 0.25s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.submitmodal-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--blue-main);
+    margin-bottom: var(--space-5);
+    text-align: center;
+}
+
+.submitmodal-file {
+    width: 100%;
+    padding: var(--space-3);
+    background: var(--bg-light);
+    border: 1px solid #dbe2f0;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: var(--space-5);
+}
+
+.submitmodal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.submitmodal-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--normal);
+}
+
+/* Cancel */
+.submitmodal-btn.cancel {
+    background: #e5e5e5;
+    color: #444;
+}
+
+.submitmodal-btn.cancel:hover {
+    opacity: 0.9;
+}
+
+/* Submit */
+.submitmodal-btn.submit {
+    background: var(--blue-main);
+    color: white;
+}
+
+.submitmodal-btn.submit:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .submitmodal-box {
+        padding: var(--space-6);
+    }
+
+    .submitmodal-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

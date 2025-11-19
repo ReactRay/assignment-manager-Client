@@ -1,0 +1,80 @@
+/* =========================================
+   STUDENT ASSIGNMENT ROW (NAMESPACE: studentassign-)
+========================================= */
+
+.studentassign-row {
+    transition: background 0.2s ease;
+}
+
+.studentassign-row:hover {
+    background: var(--blue-lighter);
+}
+
+/* Title */
+.studentassign-title {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Description cell */
+.studentassign-desc {
+    max-width: 260px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-light);
+}
+
+/* Teacher */
+.studentassign-teacher {
+    font-weight: 500;
+}
+
+/* Due date */
+.studentassign-date {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Status column (badge inside) */
+.studentassign-status {
+    min-width: 110px;
+}
+
+/* Submit column */
+.studentassign-submit-cell {
+    text-align: right;
+}
+
+/* Submit button */
+.studentassign-submit-btn {
+    padding: 0.45rem 1rem;
+    background: var(--blue-main);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--normal);
+}
+
+.studentassign-submit-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+    .studentassign-desc {
+        max-width: 150px;
+    }
+
+    .studentassign-submit-cell {
+        text-align: center;
+    }
+
+    .studentassign-submit-btn {
+        width: 100%;
+    }
+}

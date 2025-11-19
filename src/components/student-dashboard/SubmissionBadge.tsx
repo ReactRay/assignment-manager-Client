@@ -1,4 +1,4 @@
-import "./submissionBadge.css";
+import "./studentDashboardStyles/submissionBadge.css";
 import { FiAlertTriangle, FiUpload, FiAward } from "react-icons/fi";
 
 interface Props {
