@@ -11,9 +11,15 @@ export default function ProtectedRoute({ children, allowedRoles }: Props) {
 
     if (!isAuthenticated) return <Navigate to="/login" replace />;
 
-    const role = user?.roles?.[0];
+    const roles: string[] = user?.roles || [];
 
-    if (allowedRoles && !allowedRoles.includes(role)) {
+    // 🔥 RULE 1: Admin always allowed
+    if (roles.includes("Admin")) {
+        return children;
+    }
+
+    // 🔥 RULE 2: Non-admin must match allowedRoles
+    if (allowedRoles && !roles.some(r => allowedRoles.includes(r))) {
         return <Navigate to="/not-authorized" replace />;
     }
 

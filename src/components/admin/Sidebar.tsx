@@ -1,23 +1,42 @@
 import { NavLink } from "react-router-dom";
-import "./adminStyles/sidebar.css";
+
+import './adminStyles/sidebar.css'
+import {
+    FaUsers,
+    FaUserPlus,
+    FaHome,
+    FaBuilding,
+    FaChalkboardTeacher
+} from "react-icons/fa";
 
 export default function Sidebar() {
     return (
         <div className="sidebar">
-            <h2 className="sidebar-title">Admin</h2>
+            <div className="sidebar-top">
+                <FaHome className="sidebar-logo" />
+            </div>
 
-            <nav className="sidebar-nav">
-                <NavLink to="/admin/users" className="side-item">
-                    👤 Users
+            <nav className="sidebar-menu">
+
+
+
+                <NavLink
+                    to="/admin/users"
+                    className="sidebar-item"
+                >
+                    <FaUsers className="sidebar-icon" />
+                    <span className="sidebar-label">Users</span>
                 </NavLink>
 
-                <NavLink to="/admin/create-user" className="side-item">
-                    ➕ Create User
+                <NavLink
+                    to="/admin/create-user"
+                    className="sidebar-item"
+                >
+                    <FaUserPlus className="sidebar-icon" />
+                    <span className="sidebar-label">Create User</span>
                 </NavLink>
 
-                <NavLink to="/admin/roles" className="side-item">
-                    🔒 Roles
-                </NavLink>
+
             </nav>
         </div>
     );

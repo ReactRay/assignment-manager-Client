@@ -1,44 +1,84 @@
 .sidebar {
-    width: 250px;
-    background: var(--white);
-    min-height: 100vh;
-    padding: var(--space-6);
-    box-shadow: var(--shadow-md);
-    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
     position: fixed;
-    top: 0;
     left: 0;
-}
-
-.sidebar-title {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: var(--space-8);
-    background: var(--grad-blue);
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.sidebar-nav {
+    top: 0;
+    height: 100vh;
+    width: 80px;
+    /* SLIM */
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    padding: 1rem 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    transition: width 0.25s ease;
+    overflow: hidden;
+    z-index: 20;
 }
 
-.side-item {
-    padding: var(--space-4);
-    border-radius: var(--radius-md);
-    color: var(--text-dark);
-    font-weight: 500;
-    transition: var(--fast);
+/* EXPAND ON HOVER */
+.sidebar:hover {
+    width: 220px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.side-item:hover {
-    background: var(--blue-lighter);
+.sidebar-top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.sidebar-logo {
+    font-size: 2rem;
     color: var(--blue-main);
 }
 
-.side-item.active {
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.2rem;
+    color: #444;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 10px;
+    margin: 0 0.5rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar:hover .sidebar-item {
+    padding-left: 1.5rem;
+}
+
+.sidebar-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+/* Hide labels until hover */
+.sidebar-label {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .sidebar-label {
+    opacity: 1;
+}
+
+/* ACTIVE STATE */
+.sidebar-item.active {
     background: var(--blue-main);
+    color: white;
+}
+
+.sidebar-item:hover {
+    background: var(--blue-light);
     color: white;
 }
