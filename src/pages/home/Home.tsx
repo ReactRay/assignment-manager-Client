@@ -1,6 +1,6 @@
-import "../Styles/pages/home.css";
+import "./home.css";
 import mainImage from "/main3.png";
-import FancyButton from "../components/UI/FancyButton";
+import FancyButton from "../../components/UI/FancyButton";
 
 export default function Home() {
     return (

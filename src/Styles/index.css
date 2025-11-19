@@ -1,10 +1,220 @@
-@import './global.css';
-@import './variables.css';
-@import './layout.css';
-@import './pages/home.css';
-@import './components/navbar.css';
-@import './components/FancyButton.css';
-@import './components/Footer.css';
-@import './pages/Login.css';
-@import './pages/studentDashboard.css';
-@import './pages/teacherDashboard.css';
+/* ===========================
+   ROOT SYSTEM — GLOBAL DESIGN
+   Inspired by Xtram layout
+=========================== */
+
+:root {
+    /* PRIMARY COLORS */
+    --blue-main: #2d7df4;
+    --blue-light: #5fa0ff;
+    --blue-lighter: #e7f0ff;
+
+    --purple-main: #6f57ff;
+    --purple-light: #a291ff;
+
+    --yellow-main: #f4b400;
+    --yellow-light: #ffd666;
+
+    --white: #ffffff;
+
+    /* TEXT COLORS */
+    --text-dark: #1e1e1e;
+    --text-mid: #4f4f4f;
+    --text-light: #6f6f6f;
+
+    /* BACKGROUND COLORS */
+    --bg-light: #f3f6ff;
+    --bg-white: #ffffff;
+    --bg-gray: #f1f3f7;
+
+    /* GRADIENTS */
+    --grad-blue: linear-gradient(135deg, #2d7df4, #6f57ff);
+    --grad-light: linear-gradient(135deg, #e7f0ff, #ffffff);
+
+    /* RADIUS SYSTEM */
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 32px;
+
+    /* SPACING SYSTEM */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+
+    /* SHADOW SYSTEM */
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.18);
+    --shadow-card: 0 6px 20px rgba(45, 125, 244, 0.18);
+
+    /* TRANSITIONS */
+    --fast: 0.15s ease;
+    --normal: 0.3s ease;
+    --slow: 0.5s ease;
+
+    /* CONTAINER WIDTHS */
+    --container: 1200px;
+}
+
+/* ===========================
+   GLOBAL RESET
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ===========================
+   GLOBAL UTILITY CLASSES
+=========================== */
+.container {
+    max-width: var(--container);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.rounded {
+    border-radius: var(--radius-sm);
+}
+
+.shadow {
+    box-shadow: var(--shadow-md);
+}
+
+/* ===========================
+   CARDS
+=========================== */
+.card {
+    background: var(--white);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===========================
+   SECTIONS
+=========================== */
+.section {
+    padding: var(--space-12) 0;
+}
+
+/* ===========================
+   HEADINGS
+=========================== */
+h1,
+h2,
+h3 {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.4rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+/* ===========================
+   LINKS
+=========================== */
+a {
+    text-decoration: none;
+    color: var(--blue-main);
+    transition: var(--normal);
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* ===========================
+   FANCY BUTTON (your component)
+=========================== */
+.fancy-btn {
+    position: relative;
+    background: var(--blue-main);
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: var(--normal);
+    border: 2px solid white;
+}
+
+/* Bubble outline */
+.fancy-btn::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -12px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    border: 3px solid var(--blue-main);
+    z-index: -1;
+    transition: var(--normal);
+}
+
+/* Hover animation */
+.fancy-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+.fancy-btn:hover::before {
+    top: -10px;
+    left: -10px;
+}
+
+.arrow-icon {
+    font-size: 1.2rem;
+}

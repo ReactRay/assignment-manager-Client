@@ -1,3 +1,4 @@
+import "./assignmentTable.css";
 import type { AssignmentResponseDto } from "../../types/assignments";
 import AssignmentRow from "./AssignmentRow";
 

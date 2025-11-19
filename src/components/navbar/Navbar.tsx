@@ -1,8 +1,9 @@
+import "./navbar.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../redux/auth/authSlice";
+import { logout } from "../../redux/auth/authSlice";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -19,9 +20,9 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <div className="nav-container">
-                <h2 className="nav-logo">StudentTeacher</h2>
+                <h2 className="nav-logo">SchoolsIT</h2>
 
-                {/* DESKTOP LINKS */}
+                {/* Desktop menu */}
                 <ul className="nav-links">
                     <li><Link to="/">Home</Link></li>
 
@@ -40,13 +41,13 @@ export default function Navbar() {
                     )}
                 </ul>
 
-                {/* HAMBURGER */}
+                {/* Mobile hamburger */}
                 <button className="nav-hamburger" onClick={() => setOpen(!open)}>
                     {open ? <FiX /> : <FiMenu />}
                 </button>
             </div>
 
-            {/* MOBILE MENU */}
+            {/* Mobile menu */}
             <ul className={`mobile-menu ${open ? "open" : ""}`}>
                 <li onClick={() => setOpen(false)}><Link to="/">Home</Link></li>
 

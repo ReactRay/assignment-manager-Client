@@ -1,0 +1,132 @@
+/* ===========================
+   AUTH PAGE (Login / Register)
+=========================== */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    padding: var(--space-10) var(--space-6);
+    background: var(--bg-light);
+}
+
+/* Card */
+.auth-box {
+    background: var(--white);
+    width: 100%;
+    max-width: 420px;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Titles */
+.auth-box h2 {
+    text-align: center;
+    font-size: 1.9rem;
+    color: var(--text-dark);
+    font-weight: 800;
+}
+
+.auth-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-mid);
+    margin-bottom: var(--space-4);
+}
+
+/* Form */
+.auth-box form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.auth-box label {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: -6px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--blue-lighter);
+    background: var(--bg-white);
+    transition: var(--normal);
+    font-size: 1rem;
+}
+
+.auth-box input:focus {
+    border-color: var(--blue-main);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(45, 125, 244, 0.25);
+}
+
+/* Button */
+.auth-btn {
+    background: var(--blue-main);
+    color: var(--white);
+    padding: 0.85rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: var(--space-2);
+    transition: var(--normal);
+}
+
+.auth-btn:hover {
+    opacity: 0.95;
+}
+
+.auth-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Switch text */
+.auth-switch {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    margin-top: var(--space-4);
+}
+
+.auth-switch a {
+    color: var(--blue-main);
+    font-weight: 600;
+    transition: var(--normal);
+}
+
+.auth-switch a:hover {
+    opacity: 0.7;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 500px) {
+    .auth-box {
+        padding: var(--space-6);
+    }
+}

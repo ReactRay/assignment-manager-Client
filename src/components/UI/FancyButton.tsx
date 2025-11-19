@@ -1,5 +1,6 @@
+import "./FancyButton.css";
 import { FiArrowRight } from "react-icons/fi";
-import "../../Styles/components/FancyButton.css";
+
 interface FancyButtonProps {
     text: string;
     onClick?: () => void;

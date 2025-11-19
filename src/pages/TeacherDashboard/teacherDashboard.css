@@ -1,0 +1,57 @@
+/* ===========================
+   TEACHER DASHBOARD
+=========================== */
+
+.teacher-dashboard {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: var(--space-10) var(--space-6);
+}
+
+.teacher-dashboard__title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--blue-main);
+    margin-bottom: var(--space-6);
+}
+
+/* Create assignment button */
+.teacher-dashboard__create-btn {
+    background: var(--blue-main);
+    color: white;
+    padding: 0.65rem 1.2rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: var(--normal);
+    margin-bottom: var(--space-6);
+}
+
+.teacher-dashboard__create-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.teacher-dashboard__loading {
+    color: var(--text-mid);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: var(--space-4);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 700px) {
+    .teacher-dashboard__title {
+        text-align: center;
+        font-size: 1.7rem;
+    }
+
+    .teacher-dashboard__create-btn {
+        width: 100%;
+    }
+}

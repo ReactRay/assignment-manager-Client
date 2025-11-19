@@ -1,0 +1,30 @@
+/* ===========================
+   ASSIGNMENT ROW
+=========================== */
+
+/* Submit button */
+.submit-btn {
+    background: var(--blue-main);
+    color: var(--white);
+    padding: 0.45rem 1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--normal);
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.submit-btn:active {
+    transform: scale(0.97);
+}
+
+/* Make the submit button stand out inside table */
+.assignment-table td:last-child {
+    text-align: center;
+}

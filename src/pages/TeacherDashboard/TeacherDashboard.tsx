@@ -1,9 +1,9 @@
+import "./teacherDashboard.css";
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../redux/index";
-import { fetchTeacherAssignments } from "../redux/assignments/teacherAssignmentThunks";
-import TeacherAssignmentsTable from "../components/teacher-dashboard/TeacherAssignmentsTable";
-
-import CreateAssignmentModal from "../components/teacher-dashboard/CreateAssignmentModal";
+import { useAppDispatch, useAppSelector } from "../../redux/index";
+import { fetchTeacherAssignments } from "../../redux/assignments/teacherAssignmentThunks";
+import TeacherAssignmentsTable from "../../components/teacher-dashboard/TeacherAssignmentsTable";
+import CreateAssignmentModal from "../../components/teacher-dashboard/CreateAssignmentModal";
 
 export default function TeacherDashboard() {
     const dispatch = useAppDispatch();
@@ -15,18 +15,17 @@ export default function TeacherDashboard() {
     }, [dispatch]);
 
     return (
-        <section style={{ padding: "20px" }}>
-            <h2>Your Assignments</h2>
+        <section className="teacher-dashboard">
+            <h2 className="teacher-dashboard__title">Your Assignments</h2>
 
             <button
-                className="btn-primary"
-                style={{ marginBottom: "15px" }}
+                className="teacher-dashboard__create-btn"
                 onClick={() => setOpenCreate(true)}
             >
                 + Create Assignment
             </button>
 
-            {loading && <p>Loading...</p>}
+            {loading && <p className="teacher-dashboard__loading">Loading...</p>}
 
             {!loading && <TeacherAssignmentsTable assignments={list} />}
 

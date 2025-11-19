@@ -1,3 +1,4 @@
+import "./submissionBadge.css";
 import { FiAlertTriangle, FiUpload, FiAward } from "react-icons/fi";
 
 interface Props {
@@ -7,24 +8,33 @@ interface Props {
 
 export default function SubmissionStatusBadge({ status, grade }: Props) {
     return (
-        <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+        <span
+            className={
+                "submission-badge " +
+                (status === "Missing"
+                    ? "submission-badge--missing"
+                    : status === "Submitted"
+                        ? "submission-badge--submitted"
+                        : "submission-badge--graded")
+            }
+        >
             {status === "Missing" && (
                 <>
-                    <FiAlertTriangle color="#e63946" />
+                    <FiAlertTriangle />
                     <span>Missing</span>
                 </>
             )}
 
             {status === "Submitted" && (
                 <>
-                    <FiUpload color="#f4a261" />
+                    <FiUpload />
                     <span>Submitted</span>
                 </>
             )}
 
             {status === "Graded" && (
                 <>
-                    <FiAward color="#2a9d8f" />
+                    <FiAward />
                     <span>Graded ({grade})</span>
                 </>
             )}

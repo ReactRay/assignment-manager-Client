@@ -1,0 +1,96 @@
+/* ===========================
+   ASSIGNMENT TABLE
+=========================== */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    background: var(--white);
+}
+
+/* Basic table styles */
+.assignment-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.assignment-table thead {
+    background: var(--blue-main);
+    color: var(--white);
+}
+
+.assignment-table th {
+    text-align: left;
+    padding: var(--space-4);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.assignment-table td {
+    padding: var(--space-4);
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+/* Row hover */
+.assignment-table tbody tr:hover {
+    background: var(--blue-lighter);
+}
+
+/* Status pills */
+.status-pill {
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.status-pill--pending {
+    background: #fff5ce;
+    color: #c59800;
+}
+
+.status-pill--submitted {
+    background: #ecffec;
+    color: #2c8a2e;
+}
+
+.status-pill--late {
+    background: #ffe9e9;
+    color: #d22c2c;
+}
+
+/* Submit button cell */
+.assignment-submit-btn {
+    background: var(--blue-main);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--normal);
+}
+
+.assignment-submit-btn:hover {
+    opacity: 0.9;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 600px) {
+
+    .assignment-table th,
+    .assignment-table td {
+        padding: var(--space-3);
+        font-size: 0.85rem;
+    }
+}

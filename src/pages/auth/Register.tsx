@@ -1,35 +1,44 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../actions/authActions";
+import { registerUser } from "../../actions/authActions";
 
-export default function Login() {
+export default function Register() {
+    const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("Student");
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<any>();
     const navigate = useNavigate();
 
     const { status, error } = useSelector((state: any) => state.auth);
 
-    const handleLogin = () => {
-        dispatch(loginUser(email, password, navigate) as any);
+    const handleRegister = () => {
+        dispatch(registerUser(fullName, email, password, role, navigate) as any);
     };
 
     return (
         <section className="auth-container">
             <div className="auth-box">
-                <h2>Welcome Back</h2>
-                <p className="auth-subtitle">Login to continue</p>
-
+                <h2>Create Account</h2>
+                <p className="auth-subtitle">Join our platform</p>
 
                 {status === "failed" && (
-                    <p style={{ color: "red", textAlign: "center", marginBottom: "10px" }}>
-                        {error || "Invalid email or password"}
+                    <p style={{ color: "red", marginBottom: "10px", textAlign: "center" }}>
+                        {error || "Registration failed"}
                     </p>
                 )}
 
                 <form onSubmit={(e) => e.preventDefault()}>
+                    <label>Full Name</label>
+                    <input
+                        type="text"
+                        placeholder="Enter your full name"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                    />
+
                     <label>Email</label>
                     <input
                         type="email"
@@ -41,23 +50,25 @@ export default function Login() {
                     <label>Password</label>
                     <input
                         type="password"
-                        placeholder="Enter your password"
+                        placeholder="Create a password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
 
+
+
                     <button
                         type="button"
                         className="auth-btn"
-                        onClick={handleLogin}
+                        onClick={handleRegister}
                         disabled={status === "loading"}
                     >
-                        {status === "loading" ? "Logging in..." : "Login"}
+                        {status === "loading" ? "Creating..." : "Register"}
                     </button>
                 </form>
 
                 <p className="auth-switch">
-                    Don't have an account? <a href="/register">Register</a>
+                    Already have an account? <a href="/login">Login</a>
                 </p>
             </div>
         </section>

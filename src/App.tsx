@@ -1,15 +1,16 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import StudentDashboard from "./pages/StudentDashboard";
-import TeacherDashboard from "./pages/TeacherDashboard";
+import Home from "./pages/home/Home";
+
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import StudentDashboard from "./pages/StudentDashboard/StudentDashboard";
+import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
-import NotAuthorized from "./pages/NotAuthorized";
+import NotAuthorized from "./pages/not-authorized/NotAuthorized";
 
 function App() {
   return (

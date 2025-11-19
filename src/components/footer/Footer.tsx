@@ -1,12 +1,12 @@
-import "./../Styles/components/footer.css";
-import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 
+import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
+import "./footer.css";
 export default function Footer() {
     return (
         <footer className="footer">
             <div className="footer-container">
 
-                <h3 className="footer-title">Student Teacher Management</h3>
+                <h3 className="footer-title">SchoolsIT</h3>
 
                 <p className="footer-sub">
                     Please enjoy your stay!

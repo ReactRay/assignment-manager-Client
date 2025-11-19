@@ -1,3 +1,4 @@
+import "./assignmentRow.css";
 import { useState } from "react";
 import SubmissionStatusBadge from "./SubmissionBadge";
 import SubmitModal from "./SubmitModal";
@@ -23,7 +24,6 @@ export default function AssignmentRow({ assignment, refresh }: any) {
                     <button className="submit-btn" onClick={() => setOpen(true)}>
                         Submit
                     </button>
-
                 </td>
             </tr>
 
