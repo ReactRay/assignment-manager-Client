@@ -4,7 +4,6 @@ import GradeSubmissionModal from './GradeSubmissionModal';
 import { useEffect, useState } from "react";
 import { getSubmissionsForAssignment } from "../../api/submissionsApi";
 import api from "../../api/axiosClient";
-
 export default function ViewSubmissionsModal({ assignmentId, title, close }: any) {
     const [submissions, setSubmissions] = useState([]);
     const [openGrade, setOpenGrade] = useState<any>(null);
@@ -24,30 +23,23 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
                 responseType: "blob",
             });
 
-            // Use backend MIME type
             const mime = res.data.type;
 
-            // Try to extract filename from headers (if backend sends it)
-            let fileName = "submission";
+            // extract filename from content-disposition
+            const header = res.headers["content-disposition"];
+            let fileName = "file";
 
-            const disposition = res.headers["content-disposition"];
-            if (disposition) {
-                const match = disposition.match(/filename="?([^"]+)"?/);
-                if (match) fileName = match[1];
-            } else {
-
-                const ext = mime.split("/")[1] || "file";
-                fileName = `submission.${ext}`;
+            if (header && header.includes("filename=")) {
+                const match = header.match(/filename="?([^"]+)"?/);
+                if (match && match[1]) fileName = match[1];
             }
 
-
             const blob = new Blob([res.data], { type: mime });
-
             const url = window.URL.createObjectURL(blob);
 
             const a = document.createElement("a");
             a.href = url;
-            a.download = fileName;
+            a.download = fileName; // <-- THE REAL FILENAME
             a.click();
 
             window.URL.revokeObjectURL(url);

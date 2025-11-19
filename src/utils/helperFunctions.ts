@@ -29,3 +29,29 @@ export function filterUsers(
 
     return result;
 }
+
+
+export function extractFileName(contentDisposition: string | undefined) {
+    if (!contentDisposition) return "download";
+
+    // Try filename="..."
+    const fileNameMatch = contentDisposition
+        .split(";")
+        .find(x => x.trim().startsWith("filename="));
+
+    if (fileNameMatch) {
+        return fileNameMatch.split("=")[1].trim().replace(/"/g, "");
+    }
+
+    // Try filename*=UTF-8''...
+    const utf8Match = contentDisposition
+        .split(";")
+        .find(x => x.trim().startsWith("filename*="));
+
+    if (utf8Match) {
+        const value = utf8Match.split("''")[1];
+        return decodeURIComponent(value);
+    }
+
+    return "download";
+}
