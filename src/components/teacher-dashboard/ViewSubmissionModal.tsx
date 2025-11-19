@@ -52,6 +52,11 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
                     </thead>
 
                     <tbody>
+                        {submissions.length === 0 && (
+                            <tr>
+                                <td colSpan={4}>No submissions yet...</td>
+                            </tr>
+                        )}
                         {submissions.map((s: any) => (
                             <tr key={s.id}>
                                 <td>{s.studentName}</td>
