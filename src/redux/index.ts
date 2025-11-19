@@ -3,12 +3,15 @@ import authReducer from "./auth/authSlice";
 import { type TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import assignmentsReducer from "./assignments/assignmentSlice";
 import teacherAssignmentsReducer from "./assignments/teacherAssignmentSlice";
+import adminReducer from "./admin/adminSlice";
+
 
 export const store = configureStore({
     reducer: {
         auth: authReducer,
         assignments: assignmentsReducer,
-        teacherAssignments: teacherAssignmentsReducer
+        teacherAssignments: teacherAssignmentsReducer,
+        admin: adminReducer,
     },
 });
 // TYPES
