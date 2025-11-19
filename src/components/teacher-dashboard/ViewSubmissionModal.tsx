@@ -24,17 +24,38 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
                 responseType: "blob",
             });
 
-            const blob = new Blob([res.data]);
+            // Use backend MIME type
+            const mime = res.data.type;
+
+            // Try to extract filename from headers (if backend sends it)
+            let fileName = "submission";
+
+            const disposition = res.headers["content-disposition"];
+            if (disposition) {
+                const match = disposition.match(/filename="?([^"]+)"?/);
+                if (match) fileName = match[1];
+            } else {
+
+                const ext = mime.split("/")[1] || "file";
+                fileName = `submission.${ext}`;
+            }
+
+
+            const blob = new Blob([res.data], { type: mime });
+
             const url = window.URL.createObjectURL(blob);
 
             const a = document.createElement("a");
             a.href = url;
-            a.download = "submission.pdf";
+            a.download = fileName;
             a.click();
+
+            window.URL.revokeObjectURL(url);
         } catch (err) {
             console.error("Download failed", err);
         }
     };
+
 
     return (
         <div className="viewsubs-overlay">
