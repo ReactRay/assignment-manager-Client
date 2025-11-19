@@ -15,7 +15,7 @@
     margin-bottom: var(--space-6);
 }
 
-/* Assignment Table Container */
+
 .student-dashboard__table-wrapper {
     background: var(--white);
     padding: var(--space-6);
@@ -24,7 +24,7 @@
     overflow-x: auto;
 }
 
-/* Loading text */
+
 .student-dashboard__loading {
     font-size: 1.2rem;
     font-weight: 600;
@@ -33,9 +33,7 @@
     text-align: center;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+
 
 @media (max-width: 700px) {
     .student-dashboard__title {

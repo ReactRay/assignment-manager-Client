@@ -1,8 +1,3 @@
-/* ===========================
-   EDIT ASSIGNMENT MODAL (NAMESPACE: editassign-)
-=========================== */
-
-/* Overlay */
 .editassign-overlay {
     position: fixed;
     inset: 0;
@@ -14,7 +9,6 @@
     z-index: 999;
 }
 
-/* Modal Container */
 .editassign-modal {
     width: 100%;
     max-width: 600px;
@@ -41,7 +35,7 @@
     }
 }
 
-/* Title */
+
 .editassign-title {
     font-size: 1.6rem;
     font-weight: 800;
@@ -49,7 +43,7 @@
     margin-bottom: var(--space-2);
 }
 
-/* Inputs */
+
 .editassign-input,
 .editassign-textarea {
     width: 100%;
@@ -73,7 +67,6 @@
     resize: vertical;
 }
 
-/* Actions */
 .editassign-actions {
     display: flex;
     justify-content: flex-end;
@@ -81,7 +74,7 @@
     margin-top: var(--space-4);
 }
 
-/* Buttons */
+
 .editassign-btn {
     padding: 0.6rem 1.3rem;
     border-radius: var(--radius-sm);

@@ -12,7 +12,7 @@ export default function Footer() {
                     Please enjoy your stay!
                 </p>
 
-                {/* Social Icons */}
+
                 <div className="footer-links">
                     <a href="https://github.com/ReactRay" target="_blank">
                         <FaGithub />

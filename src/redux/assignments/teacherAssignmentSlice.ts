@@ -26,7 +26,7 @@ const teacherAssignmentsSlice = createSlice({
 
     extraReducers: (builder) => {
         builder
-            // FETCH ASSIGNMENTS
+
             .addCase(fetchTeacherAssignments.pending, (state) => {
                 state.loading = true;
             })
@@ -38,25 +38,25 @@ const teacherAssignmentsSlice = createSlice({
                 state.loading = false;
             })
 
-            // FETCH SUBMISSIONS FOR ONE ASSIGNMENT
+
             .addCase(fetchSubmissionsForAssignment.fulfilled, (state, action) => {
                 const { assignmentId, submissions } = action.payload;
                 state.submissions[assignmentId] = submissions;
             })
 
-            // CREATE ASSIGNMENT
+
             .addCase(createAssignmentThunk.fulfilled, (state, action) => {
                 state.list.push(action.payload);
             })
 
-            // UPDATE ASSIGNMENT
+
             .addCase(updateAssignmentThunk.fulfilled, (state, action) => {
                 state.list = state.list.map((a) =>
                     a.id === action.payload.id ? action.payload : a
                 );
             })
 
-            // DELETE ASSIGNMENT
+
             .addCase(deleteAssignmentThunk.fulfilled, (state, action) => {
                 state.list = state.list.filter((a) => a.id !== action.payload);
             });

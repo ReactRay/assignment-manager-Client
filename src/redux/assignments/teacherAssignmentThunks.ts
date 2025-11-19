@@ -7,7 +7,7 @@ import {
 } from "../../api/assignmentApi";
 import { getSubmissionsForAssignment } from "../../api/submissionsApi";
 
-// FETCH TEACHER'S OWN ASSIGNMENTS
+
 export const fetchTeacherAssignments = createAsyncThunk(
     "teacherAssignments/fetch",
     async () => {
@@ -16,7 +16,7 @@ export const fetchTeacherAssignments = createAsyncThunk(
     }
 );
 
-// FETCH SUBMISSIONS FOR A SPECIFIC ASSIGNMENT
+
 export const fetchSubmissionsForAssignment = createAsyncThunk(
     "teacherAssignments/fetchSubmissions",
     async (assignmentId: string) => {
@@ -25,7 +25,7 @@ export const fetchSubmissionsForAssignment = createAsyncThunk(
     }
 );
 
-// CREATE ASSIGNMENT
+
 export const createAssignmentThunk = createAsyncThunk(
     "teacherAssignments/create",
     async (payload: any) => {
@@ -34,7 +34,7 @@ export const createAssignmentThunk = createAsyncThunk(
     }
 );
 
-// UPDATE ASSIGNMENT
+
 export const updateAssignmentThunk = createAsyncThunk(
     "teacherAssignments/update",
     async ({ id, data }: any) => {
@@ -43,7 +43,6 @@ export const updateAssignmentThunk = createAsyncThunk(
     }
 );
 
-// DELETE ASSIGNMENT
 export const deleteAssignmentThunk = createAsyncThunk(
     "teacherAssignments/delete",
     async (id: string) => {

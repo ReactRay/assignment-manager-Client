@@ -1,9 +1,3 @@
-/* ===========================
-   GRADE SUBMISSION MODAL
-   (NAMESPACE: gradesub-)
-=========================== */
-
-/* Overlay */
 .gradesub-overlay {
     position: fixed;
     inset: 0;
@@ -15,7 +9,7 @@
     z-index: 999;
 }
 
-/* Modal container */
+
 .gradesub-modal {
     width: 100%;
     max-width: 450px;
@@ -49,7 +43,6 @@
     margin-bottom: var(--space-2);
 }
 
-/* Input */
 .gradesub-input {
     width: 100%;
     padding: 0.8rem 1rem;
@@ -66,7 +59,7 @@
     box-shadow: 0 0 0 3px rgba(45, 125, 244, 0.2);
 }
 
-/* Actions */
+
 .gradesub-actions {
     display: flex;
     justify-content: flex-end;
@@ -74,7 +67,7 @@
     margin-top: var(--space-4);
 }
 
-/* Buttons */
+
 .gradesub-btn {
     padding: 0.6rem 1.3rem;
     border-radius: var(--radius-sm);

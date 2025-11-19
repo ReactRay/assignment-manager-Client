@@ -1,9 +1,3 @@
-/* ===========================
-   CREATE ASSIGNMENT MODAL
-   (NAMESPACE: createassign-)
-=========================== */
-
-/* Overlay */
 .createassign-overlay {
     position: fixed;
     inset: 0;
@@ -15,7 +9,7 @@
     z-index: 999;
 }
 
-/* Modal container */
+
 .createassign-modal {
     width: 100%;
     max-width: 600px;
@@ -41,7 +35,7 @@
     }
 }
 
-/* Title */
+
 .createassign-title {
     font-size: 1.6rem;
     font-weight: 800;
@@ -49,7 +43,7 @@
     margin-bottom: var(--space-2);
 }
 
-/* Inputs */
+
 .createassign-input,
 .createassign-textarea {
     width: 100%;
@@ -73,7 +67,7 @@
     resize: vertical;
 }
 
-/* Actions */
+
 .createassign-actions {
     display: flex;
     justify-content: flex-end;
@@ -81,7 +75,6 @@
     margin-top: var(--space-4);
 }
 
-/* Buttons */
 .createassign-btn {
     padding: 0.6rem 1.3rem;
     border-radius: var(--radius-sm);

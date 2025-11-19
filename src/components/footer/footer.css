@@ -1,7 +1,3 @@
-/* ===========================
-   FOOTER — CLEAN, MODERN, SAFE
-=========================== */
-
 .footer {
     background: var(--bg-light);
     padding: var(--space-12) 0 var(--space-6);
@@ -51,16 +47,13 @@
     transform: translateY(-3px);
 }
 
-/* Copyright */
+
 .footer-copy {
     margin-top: var(--space-6);
     color: var(--text-light);
     font-size: 0.9rem;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
 @media (max-width: 600px) {
     .footer-title {
         font-size: 1.3rem;

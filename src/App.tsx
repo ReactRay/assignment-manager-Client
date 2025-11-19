@@ -19,7 +19,7 @@ function App() {
 
       <Routes>
 
-        {/* PUBLIC ROUTES */}
+
         <Route path="/" element={<Home />} />
 
         <Route
@@ -40,7 +40,7 @@ function App() {
           }
         />
 
-        {/* STUDENT ONLY */}
+
         <Route
           path="/student"
           element={
@@ -50,7 +50,7 @@ function App() {
           }
         />
 
-        {/* TEACHER ONLY */}
+
         <Route
           path="/teacher"
           element={
@@ -60,7 +60,7 @@ function App() {
           }
         />
 
-        {/* ADMIN ONLY */}
+
         <Route
           path="/admin"
           element={

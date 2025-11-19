@@ -31,10 +31,10 @@ const adminSlice = createSlice({
             state.error = action.error.message || "Error loading users";
         });
 
-        // ---- ASSIGN ROLE ----
+
         builder.addCase(assignRoleThunk.fulfilled, () => { });
 
-        // ---- REMOVE ROLE ----
+
         builder.addCase(removeRoleThunk.fulfilled, () => { });
     }
 });

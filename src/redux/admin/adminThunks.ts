@@ -8,7 +8,7 @@ import {
     createStudent
 } from "../../api/adminApi";
 
-// GET USERS
+
 export const fetchUsersThunk = createAsyncThunk(
     "admin/fetchUsers",
     async () => {
@@ -17,7 +17,7 @@ export const fetchUsersThunk = createAsyncThunk(
     }
 );
 
-// ASSIGN ROLE
+
 export const assignRoleThunk = createAsyncThunk(
     "admin/assignRole",
     async ({ userId, roleName }: { userId: string; roleName: string }) => {
@@ -26,7 +26,7 @@ export const assignRoleThunk = createAsyncThunk(
     }
 );
 
-// REMOVE ROLE
+
 export const removeRoleThunk = createAsyncThunk(
     "admin/removeRole",
     async ({ userId, roleName }: { userId: string; roleName: string }) => {
@@ -35,7 +35,7 @@ export const removeRoleThunk = createAsyncThunk(
     }
 );
 
-// CREATE USERS
+
 
 export const createAdminThunk = createAsyncThunk(
     "admin/createAdmin",
