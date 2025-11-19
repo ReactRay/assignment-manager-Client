@@ -1,5 +1,4 @@
 
-import Sidebar from "../../components/admin/Sidebar";
 import AdminContent from "../../components/admin/AdminContent";
 import './adminPageStyles/adminDashboard.css';
 

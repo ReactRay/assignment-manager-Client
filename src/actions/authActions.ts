@@ -1,7 +1,9 @@
-import { registerThunk } from './../redux/auth/authThunks';
+import { registerThunk } from "../redux/auth/authThunks";
 import { loginThunk } from "../redux/auth/authThunks";
 import { type AppDispatch } from "../redux/index";
 import { type NavigateFunction } from "react-router-dom";
+
+type UserRole = "Admin" | "Teacher" | "Student";
 
 export const loginUser =
     (email: string, password: string, navigate: NavigateFunction) =>
@@ -11,16 +13,16 @@ export const loginUser =
             dispatch(loginThunk({ email, password }))
                 .unwrap()
                 .then((res) => {
-                    const role = res.user.roles[0];
+                    const rawRole = res.user.roles[0];
+                    const role = rawRole as UserRole; // <-- FIXED
 
                     if (role === "Student") navigate("/student");
                     else if (role === "Teacher") navigate("/teacher");
                     else if (role === "Admin") navigate("/admin");
                 })
-                .catch(() => {
-
-                });
+                .catch(() => { });
         };
+
 export const registerUser =
     (
         fullName: string,
@@ -35,10 +37,7 @@ export const registerUser =
             dispatch(registerThunk({ fullName, email, password, role }))
                 .unwrap()
                 .then(() => {
-                    // After successful register → go to login
-                    navigate("/login");
+                    navigate("/login"); // on success → login page
                 })
-                .catch(() => {
-                    // Error handled in redux
-                });
+                .catch(() => { });
         };

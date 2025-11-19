@@ -7,7 +7,8 @@ export default function Register() {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [role, setRole] = useState("Student");
+
+    const role = "Student";
 
     const dispatch = useDispatch<any>();
     const navigate = useNavigate();

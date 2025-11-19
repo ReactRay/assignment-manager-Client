@@ -1,4 +1,3 @@
-// src/redux/admin/adminSlice.ts
 import { createSlice } from "@reduxjs/toolkit";
 import {
     fetchUsersThunk,
@@ -26,7 +25,7 @@ const adminSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        // ---- FETCH USERS ----
+        // FETCH USERS
         builder.addCase(fetchUsersThunk.pending, (state) => {
             state.loading = true;
             state.error = null;
@@ -42,33 +41,29 @@ const adminSlice = createSlice({
             state.error = action.error.message || "Error loading users";
         });
 
-        // ---- ASSIGN ROLE ----
+        // ASSIGN ROLE
         builder.addCase(assignRoleThunk.pending, (state) => {
             state.error = null;
         });
 
-        builder.addCase(assignRoleThunk.fulfilled, (state) => {
-            // nothing to do, fetchUsersThunk already refreshed users
-        });
+        builder.addCase(assignRoleThunk.fulfilled, (_) => { }); // cleaned
 
         builder.addCase(assignRoleThunk.rejected, (state, action) => {
             state.error = action.error.message || "Failed to assign role";
         });
 
-        // ---- REMOVE ROLE ----
+        // REMOVE ROLE
         builder.addCase(removeRoleThunk.pending, (state) => {
             state.error = null;
         });
 
-        builder.addCase(removeRoleThunk.fulfilled, (state) => {
-            // nothing to do, fetchUsersThunk already refreshed users
-        });
+        builder.addCase(removeRoleThunk.fulfilled, (_) => { }); // cleaned
 
         builder.addCase(removeRoleThunk.rejected, (state, action) => {
             state.error = action.error.message || "Failed to remove role";
         });
 
-        // ---- CREATE ADMIN / TEACHER / STUDENT ----
+        // CREATE ADMIN/TEACHER/STUDENT
         builder.addCase(createAdminThunk.rejected, (state, action) => {
             state.error = action.error.message || "Failed to create admin";
         });

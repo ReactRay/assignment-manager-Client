@@ -1,8 +1,16 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { loginThunk, registerThunk } from "./authThunks";
-import { type UserDto } from "../../types/auth";
 
-const initialState = {
+interface AuthState {
+    user: any | null;
+    token: string | null;
+    isAuthenticated: boolean;
+    status: string;
+    error: string | null;
+    loaded: boolean;
+}
+
+const initialState: AuthState = {
     user: null,
     token: null,
     isAuthenticated: false,
@@ -10,7 +18,6 @@ const initialState = {
     error: null,
     loaded: false
 };
-
 
 const authSlice = createSlice({
     name: "auth",
@@ -34,9 +41,8 @@ const authSlice = createSlice({
                 state.isAuthenticated = true;
             }
 
-            state.loaded = true;   // <-- mark finished
+            state.loaded = true;
         },
-
     },
 
     extraReducers: (builder) => {
@@ -44,16 +50,17 @@ const authSlice = createSlice({
         builder.addCase(loginThunk.pending, (state) => {
             state.status = "loading";
         });
+
         builder.addCase(loginThunk.fulfilled, (state, action) => {
             state.status = "succeeded";
             state.token = action.payload.token;
             state.user = action.payload.user;
             state.isAuthenticated = true;
 
-
             localStorage.setItem("token", action.payload.token);
             localStorage.setItem("user", JSON.stringify(action.payload.user));
         });
+
         builder.addCase(loginThunk.rejected, (state, action) => {
             state.status = "failed";
             state.error = action.error.message ?? "Login failed";
@@ -63,9 +70,11 @@ const authSlice = createSlice({
         builder.addCase(registerThunk.pending, (state) => {
             state.status = "loading";
         });
+
         builder.addCase(registerThunk.fulfilled, (state) => {
             state.status = "succeeded";
         });
+
         builder.addCase(registerThunk.rejected, (state, action) => {
             state.status = "failed";
             state.error = action.error.message ?? "Register failed";
