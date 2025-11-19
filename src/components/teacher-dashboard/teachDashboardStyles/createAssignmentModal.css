@@ -1,0 +1,108 @@
+/* ===========================
+   CREATE ASSIGNMENT MODAL
+   (NAMESPACE: createassign-)
+=========================== */
+
+/* Overlay */
+.createassign-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Modal container */
+.createassign-modal {
+    width: 100%;
+    max-width: 600px;
+    background: var(--white);
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Title */
+.createassign-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--blue-main);
+    margin-bottom: var(--space-2);
+}
+
+/* Inputs */
+.createassign-input,
+.createassign-textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-radius: var(--radius-sm);
+    border: 2px solid #e0e0e0;
+    background: var(--white);
+    transition: 0.25s ease;
+}
+
+.createassign-input:focus,
+.createassign-textarea:focus {
+    border-color: var(--blue-main);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(45, 125, 244, 0.2);
+}
+
+.createassign-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Actions */
+.createassign-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+/* Buttons */
+.createassign-btn {
+    padding: 0.6rem 1.3rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.createassign-btn.cancel {
+    background: var(--yellow-light);
+    color: #7a5600;
+}
+
+.createassign-btn.submit {
+    background: var(--blue-main);
+    color: white;
+}
+
+.createassign-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}

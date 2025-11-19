@@ -11,7 +11,8 @@ export const submitAssignment = (formData: FormData) =>
 
 // (Optional for teacher) Grade submission
 export const gradeSubmission = (submissionId: string, grade: number) =>
-    api.patch(`/Submissions/${submissionId}/grade`, { grade });
+    api.put(`/Submissions/${submissionId}/grade`, { grade });
+
 
 // (Optional for teacher/admin) Get submissions for one assignment
 export const getSubmissionsForAssignment = (assignmentId: string) =>

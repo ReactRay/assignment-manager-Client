@@ -1,0 +1,79 @@
+/* =========================================
+   TEACHER ASSIGNMENT ROW (NAMESPACE: teacherassign-)
+========================================= */
+
+.teacherassign-row-actions {
+    display: flex;
+    gap: var(--space-2);
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* PRIMARY button */
+.teacherassign-btn-primary {
+    background: var(--blue-main);
+    color: white;
+    padding: 0.45rem 1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--normal);
+}
+
+.teacherassign-btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* SECONDARY */
+.teacherassign-btn-secondary {
+    background: var(--yellow-light);
+    color: #7a5600;
+    padding: 0.45rem 1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--normal);
+}
+
+.teacherassign-btn-secondary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* DANGER */
+.teacherassign-btn-danger {
+    background: #e63946;
+    color: white;
+    padding: 0.45rem 1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--normal);
+}
+
+.teacherassign-btn-danger:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Responsive: stack buttons vertically */
+@media (max-width: 700px) {
+    .teacherassign-row-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .teacherassign-btn-primary,
+    .teacherassign-btn-secondary,
+    .teacherassign-btn-danger {
+        width: 100%;
+        text-align: center;
+    }
+}

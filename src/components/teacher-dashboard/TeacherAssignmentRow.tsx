@@ -1,7 +1,8 @@
+import './teachDashboardStyles/teacherAssignmentRow.css'
 import { useState } from "react";
 import EditAssignmentModal from "./EditAssigmentModal";
 import ViewSubmissionsModal from "./ViewSubmissionModal";
-import { useAppDispatch } from "../../redux/index";
+import { useAppDispatch } from "../../redux";
 import { deleteAssignmentThunk } from "../../redux/assignments/teacherAssignmentThunks";
 
 export default function TeacherAssignmentRow({ assignment }: any) {
@@ -19,19 +20,27 @@ export default function TeacherAssignmentRow({ assignment }: any) {
         <>
             <tr>
                 <td>{assignment.title}</td>
+
+                <td className="teacherassign-desc-cell">
+                    {assignment.description}
+                </td>
+
                 <td>{new Date(assignment.dueDate).toLocaleDateString()}</td>
-                <td style={{ display: "flex", gap: "8px" }}>
-                    <button className="btn-secondary" onClick={() => setOpenSubs(true)}>
-                        View Submissions
-                    </button>
 
-                    <button className="btn-primary" onClick={() => setOpenEdit(true)}>
-                        Edit
-                    </button>
+                <td>
+                    <div className="teacherassign-row-actions">
+                        <button className="teacherassign-btn-secondary" onClick={() => setOpenSubs(true)}>
+                            View Submissions
+                        </button>
 
-                    <button className="btn-danger" onClick={handleDelete}>
-                        Delete
-                    </button>
+                        <button className="teacherassign-btn-primary" onClick={() => setOpenEdit(true)}>
+                            Edit
+                        </button>
+
+                        <button className="teacherassign-btn-danger" onClick={handleDelete}>
+                            Delete
+                        </button>
+                    </div>
                 </td>
             </tr>
 

@@ -1,0 +1,127 @@
+/* ===========================
+   VIEW SUBMISSIONS MODAL (NAMESPACE: viewsubs-)
+=========================== */
+
+/* Overlay */
+.viewsubs-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Modal box */
+.viewsubs-modal {
+    width: 100%;
+    max-width: 900px;
+    background: var(--white);
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Title */
+.viewsubs-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--blue-main);
+    margin-bottom: var(--space-2);
+}
+
+/* Table */
+.viewsubs-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.viewsubs-table thead {
+    background: var(--blue-main);
+    color: white;
+}
+
+.viewsubs-table th {
+    padding: var(--space-3);
+    font-size: 0.9rem;
+    text-align: left;
+    font-weight: 700;
+}
+
+.viewsubs-table td {
+    padding: var(--space-3);
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.viewsubs-table tbody tr:hover {
+    background: var(--blue-lighter);
+}
+
+/* Actions */
+.viewsubs-actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+/* Buttons */
+.viewsubs-btn-primary {
+    background: var(--blue-main);
+    color: white;
+    padding: 0.45rem 1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.viewsubs-btn-secondary {
+    background: var(--yellow-light);
+    color: #7a5600;
+    padding: 0.45rem 1rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Footer */
+.viewsubs-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--space-4);
+}
+
+.viewsubs-btn-cancel {
+    background: var(--yellow-light);
+    color: #7a5600;
+    padding: 0.6rem 1.3rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+}

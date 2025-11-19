@@ -1,6 +1,8 @@
+import './teachDashboardStyles/viewSubmissionModal.css'
+
+import GradeSubmissionModal from './GradeSubmissionModal';
 import { useEffect, useState } from "react";
 import { getSubmissionsForAssignment } from "../../api/submissionsApi";
-import GradeSubmissionModal from "./GradeSubmissionModal";
 import api from "../../api/axiosClient";
 
 export default function ViewSubmissionsModal({ assignmentId, title, close }: any) {
@@ -27,7 +29,7 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
 
             const a = document.createElement("a");
             a.href = url;
-            a.download = "submission.pdf"; // OR dynamic filename
+            a.download = "submission.pdf";
             a.click();
         } catch (err) {
             console.error("Download failed", err);
@@ -35,11 +37,11 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
     };
 
     return (
-        <div className="modal-overlay">
-            <div className="modal-box">
-                <h3>Submissions for: {title}</h3>
+        <div className="viewsubs-overlay">
+            <div className="viewsubs-modal">
+                <h3 className="viewsubs-title">Submissions for: {title}</h3>
 
-                <table className="assignment-table">
+                <table className="viewsubs-table">
                     <thead>
                         <tr>
                             <th>Student</th>
@@ -56,29 +58,30 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
                                 <td>{new Date(s.submittedAt).toLocaleString()}</td>
                                 <td>{s.grade ?? "—"}</td>
 
-                                <td style={{ display: "flex", gap: "8px" }}>
-                                    <button
-                                        className="btn-secondary"
-                                        onClick={() => handleDownload(s.id)}
-                                    >
-                                        Download
-                                    </button>
+                                <td>
+                                    <div className="viewsubs-actions">
+                                        <button
+                                            className="viewsubs-btn-secondary"
+                                            onClick={() => handleDownload(s.id)}
+                                        >
+                                            Download
+                                        </button>
 
-
-                                    <button
-                                        className="btn-primary"
-                                        onClick={() => setOpenGrade(s)}
-                                    >
-                                        Grade
-                                    </button>
+                                        <button
+                                            className="viewsubs-btn-primary"
+                                            onClick={() => setOpenGrade(s)}
+                                        >
+                                            Grade
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
 
-                <div className="modal-actions">
-                    <button className="modal-btn cancel" onClick={close}>
+                <div className="viewsubs-footer">
+                    <button className="viewsubs-btn-cancel" onClick={close}>
                         Close
                     </button>
                 </div>
@@ -88,7 +91,7 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
                         submission={openGrade}
                         close={() => {
                             setOpenGrade(null);
-                            load(); // refresh grades
+                            load();
                         }}
                     />
                 )}

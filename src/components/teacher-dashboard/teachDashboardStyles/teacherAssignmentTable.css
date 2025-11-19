@@ -1,0 +1,56 @@
+/* =========================================
+   TEACHER ASSIGNMENTS TABLE (NAMESPACE: teacherassign-)
+========================================= */
+
+/* Wrapper adds horizontal scroll on mobile */
+.teacherassign-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Main table */
+.teacherassign-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    min-width: 700px;
+    /* ensures columns don’t squeeze too hard */
+}
+
+/* Header */
+.teacherassign-table thead {
+    background: var(--blue-main);
+    color: white;
+}
+
+.teacherassign-table th {
+    text-align: left;
+    padding: var(--space-4);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.teacherassign-table td {
+    padding: var(--space-4);
+    font-size: 0.95rem;
+    border-bottom: 1px solid #e6e8f0;
+    color: var(--text-dark);
+}
+
+/* Hover effect */
+.teacherassign-table tbody tr:hover {
+    background: var(--blue-lighter);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+
+    .teacherassign-table th,
+    .teacherassign-table td {
+        padding: var(--space-3);
+        font-size: 0.85rem;
+    }
+}
