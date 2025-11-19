@@ -1,3 +1,4 @@
+// src/api/adminApi.ts
 import api from "./axiosClient";
 
 export const getAllUsers = () => api.get("/Admin/users");

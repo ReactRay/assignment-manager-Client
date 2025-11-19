@@ -1,0 +1,89 @@
+.users-page {
+    padding: var(--space-10);
+}
+
+/* FILTER BOX */
+.filters-box {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #ccc;
+}
+
+.role-filter {
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #ccc;
+}
+
+/* TABLE */
+.users-table {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.users-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-table th {
+    background: var(--blue-lighter);
+    padding: var(--space-4);
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.users-table td {
+    padding: var(--space-4);
+    border-bottom: 1px solid #eee;
+}
+
+/* ROLE PILLS */
+.role-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.role-pill {
+    background: var(--blue-light);
+    color: white;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.remove-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ADD ROLE SELECT */
+.action-select {
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid #ccc;
+}
+
+/* LOADING */
+.loading {
+    padding: var(--space-10);
+    text-align: center;
+    font-size: 1.2rem;
+}

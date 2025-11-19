@@ -23,7 +23,7 @@
     --bg-gray: #f1f3f7;
 
     /* GRADIENTS */
-    --grad-blue: linear-gradient(135deg, #2d7df4, #6f57ff);
+    --grad-blue: linear-gradient(135deg, #2d7df4, #3d81e7);
     --grad-light: linear-gradient(135deg, #e7f0ff, #ffffff);
 
     /* RADIUS SYSTEM */
@@ -153,7 +153,9 @@ a:hover {
     opacity: 0.7;
 }
 
-
+/* ===========================
+   FANCY BUTTON (your component)
+=========================== */
 .fancy-btn {
     position: relative;
     background: var(--blue-main);
@@ -170,7 +172,7 @@ a:hover {
     border: 2px solid white;
 }
 
-
+/* Bubble outline */
 .fancy-btn::before {
     content: "";
     position: absolute;
@@ -184,6 +186,7 @@ a:hover {
     transition: var(--normal);
 }
 
+/* Hover animation */
 .fancy-btn:hover {
     transform: translateY(-2px);
     opacity: 0.95;

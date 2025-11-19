@@ -12,8 +12,9 @@ export default function SubmitModal({ assignment, close }: any) {
         if (!file) return;
 
         const form = new FormData();
-        form.append("AssignmentId", assignment.id);
+        form.append("AssignmentId", assignment.id.toString());
         form.append("File", file);
+
 
         await submitAssignment(form);
 
