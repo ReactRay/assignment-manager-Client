@@ -1,3 +1,4 @@
+import type { AssignmentResponseDto } from "../../types/assignments";
 import AssignmentRow from "./AssignmentRow";
 
 export default function AssignmentTable({ assignments, refresh }: any) {
@@ -15,7 +16,7 @@ export default function AssignmentTable({ assignments, refresh }: any) {
                 </thead>
 
                 <tbody>
-                    {assignments.map((a) => (
+                    {assignments.map((a: AssignmentResponseDto) => (
                         <AssignmentRow key={a.id} assignment={a} refresh={refresh} />
                     ))}
                 </tbody>

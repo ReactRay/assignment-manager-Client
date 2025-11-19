@@ -7,7 +7,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const dispatch = useDispatch<any>();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const { status, error } = useSelector((state: any) => state.auth);
@@ -22,7 +22,7 @@ export default function Login() {
                 <h2>Welcome Back</h2>
                 <p className="auth-subtitle">Login to continue</p>
 
-                {/* ERROR MESSAGE */}
+
                 {status === "failed" && (
                     <p style={{ color: "red", textAlign: "center", marginBottom: "10px" }}>
                         {error || "Invalid email or password"}

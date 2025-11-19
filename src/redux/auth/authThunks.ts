@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { authApi } from "../../api/authApi";
 import { type LoginDto, type RegisterDto, type LoginResponse } from "../../types/auth";
 
-// LOGIN THUNK
+
 export const loginThunk = createAsyncThunk<LoginResponse, LoginDto>(
     "auth/login",
     async (credentials, { rejectWithValue }) => {
@@ -15,7 +15,7 @@ export const loginThunk = createAsyncThunk<LoginResponse, LoginDto>(
     }
 );
 
-// REGISTER THUNK
+
 export const registerThunk = createAsyncThunk<any, RegisterDto>(
     "auth/register",
     async (data, { rejectWithValue }) => {
