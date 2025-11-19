@@ -16,7 +16,7 @@ export default function TeacherDashboard() {
 
     return (
         <section className="teacher-dashboard">
-            <h2 className="teacher-dashboard__title">Your Assignments</h2>
+            <h2 className="teacher-dashboard__title">Teachers Dashboard</h2>
 
             <button
                 className="teacher-dashboard__create-btn"

@@ -14,7 +14,7 @@ export default function StudentDashboard() {
 
     return (
         <section className="student-dashboard">
-            <h2 className="student-dashboard__title">Your Assignments</h2>
+            <h2 className="student-dashboard__title">Student Dashboard</h2>
 
             {loading ? (
                 <p className="student-dashboard__loading">Loading...</p>

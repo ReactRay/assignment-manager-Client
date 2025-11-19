@@ -109,11 +109,18 @@ export default function Guide() {
 
             {/* VIDEO */}
             <h2 className="guide-heading">🎥 4. Video Guide</h2>
-            <p>A full walkthrough video will be added here soon.</p>
-            <div className="video-placeholder">
-                <p>📺 Video Coming Soon</p>
-            </div>
+            <p>Watch the full walkthrough of the system below.</p>
 
+            <div className="guide-video-wrapper">
+                <video
+                    className="guide-video"
+                    controls
+                    preload="metadata"
+                >
+                    <source src="https://res.cloudinary.com/danlxus36/video/upload/v1763583961/2025-11-19_22-20-13_c8fwuj.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
 
     );
