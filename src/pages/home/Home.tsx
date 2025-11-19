@@ -4,10 +4,11 @@ import FancyButton from "../../components/UI/FancyButton";
 import { Link, useNavigate } from "react-router-dom";
 import LandingHighlights from "../../components/landingHighlights/LandingHighLights";
 import { useSelector } from "react-redux";
+import { type RootState } from "../../redux/index";
 
 export default function Home() {
 
-    const user = useSelector((state) => state.auth.user);
+    const user = useSelector((state: RootState) => state.auth.user); // FIXED
     const navigate = useNavigate();
 
     const handleGetStarted = () => {
@@ -15,23 +16,8 @@ export default function Home() {
             navigate("/login");
             return;
         }
-
-        const roles = user.roles || [];
-
-        if (roles.includes("Admin")) {
-            navigate("/admin");
-        }
-        else if (roles.includes("Teacher")) {
-            navigate("/teacher");
-        }
-        else if (roles.includes("Student")) {
-            navigate("/student");
-        }
-        else {
-            navigate("/login");
-        }
+        navigate("/admin");
     };
-
 
     return (
         <>

@@ -8,7 +8,7 @@ export default function Sidebar() {
 
     return (
         <>
-            {/* Mobile Toggle Button */}
+
             <button className="sidebar-toggle" onClick={() => setOpen(!open)}>
                 <FaBars />
             </button>
