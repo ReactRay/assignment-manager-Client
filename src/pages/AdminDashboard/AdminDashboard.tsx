@@ -6,7 +6,6 @@ import './adminPageStyles/adminDashboard.css';
 export default function AdminDashboard() {
     return (
         <div className="admin-layout">
-
             <AdminContent />
         </div>
     );

@@ -12,19 +12,17 @@ export default function UsersFilter({
     onRoleChange
 }: Props) {
     return (
-        <div className="filters-box">
+        <div className="users-filter">
             <input
                 type="text"
                 placeholder="Search by name or email..."
                 value={search}
                 onChange={(e) => onSearchChange(e.target.value)}
-                className="search-input"
             />
 
             <select
                 value={roleFilter}
                 onChange={(e) => onRoleChange(e.target.value)}
-                className="role-filter"
             >
                 <option value="All">All Roles</option>
                 <option value="Admin">Admin</option>
@@ -32,5 +30,6 @@ export default function UsersFilter({
                 <option value="Student">Student</option>
             </select>
         </div>
+
     );
 }

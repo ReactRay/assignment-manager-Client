@@ -1,0 +1,81 @@
+.landing-highlights {
+    margin-top: 3rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    animation: fadeIn 0.4s ease;
+}
+
+.lh-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.lh-subtitle {
+    text-align: center;
+    color: var(--text-mid);
+    margin-bottom: 2rem;
+}
+
+.lh-lists {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+/* Cards */
+.lh-card {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+}
+
+.lh-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.lh-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--blue-main);
+    margin-bottom: 0.8rem;
+}
+
+.lh-card ul {
+    margin-left: 1.2rem;
+    color: var(--text-dark);
+    line-height: 1.7rem;
+    font-size: 0.95rem;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .landing-highlights {
+        padding: 1.5rem;
+    }
+
+    .lh-title {
+        font-size: 1.4rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

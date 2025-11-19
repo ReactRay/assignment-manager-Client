@@ -1,0 +1,74 @@
+.guide-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.guide-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.guide-subtitle {
+    text-align: center;
+    color: var(--text-mid);
+    margin-bottom: 2.5rem;
+}
+
+.guide-heading {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    color: var(--blue-main);
+}
+
+.guide-image {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    margin: 1rem 0 1.5rem 0;
+}
+
+.guide-list,
+.guide-list-numbered {
+    margin-left: 1.2rem;
+    line-height: 1.8rem;
+    color: var(--text-dark);
+}
+
+.guide-list li {
+    list-style-type: disc;
+}
+
+.guide-list-numbered li {
+    list-style-type: decimal;
+}
+
+.video-placeholder {
+    background: var(--bg-light);
+    border: 1px dashed var(--blue-main);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--text-mid);
+}
+
+@media (max-width: 600px) {
+    .guide-container {
+        padding: 1.2rem;
+    }
+
+    .guide-title {
+        font-size: 1.7rem;
+    }
+
+    .guide-heading {
+        font-size: 1.2rem;
+    }
+}

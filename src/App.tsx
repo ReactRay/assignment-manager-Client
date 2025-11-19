@@ -1,17 +1,21 @@
 import { Routes, Route } from "react-router-dom";
+
+
 import Home from "./pages/home/Home";
 import UsersPage from "./pages/AdminDashboard/UserPage";
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
+import CreateUserPage from "./pages/AdminDashboard/CreateUserPage";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import StudentDashboard from "./pages/StudentDashboard/StudentDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard/TeacherDashboard";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
-import PublicRoute from "./components/PublicRoute";
 import NotAuthorized from "./pages/not-authorized/NotAuthorized";
-import CreateUserPage from "./pages/AdminDashboard/CreateUserPage";
+import Guide from "./pages/guide/Guide";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+
+
+import RoleRoute from "./components/RoleRoute";
 
 function App() {
   return (
@@ -20,62 +24,48 @@ function App() {
 
       <Routes>
 
-
+        {/* Public Home */}
         <Route path="/" element={<Home />} />
+        <Route path="/guide" element={<Guide />} />
 
-        <Route
-          path="/login"
-          element={
-            <PublicRoute>
-              <Login />
-            </PublicRoute>
-          }
-        />
+        {/* Public Auth Routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-        <Route
-          path="/register"
-          element={
-            <PublicRoute>
-              <Register />
-            </PublicRoute>
-          }
-        />
-
-
+        {/* Student Route */}
         <Route
           path="/student"
           element={
-            <ProtectedRoute allowedRoles={["Student", "Admin"]}>
+            <RoleRoute allowed={["Student"]}>
               <StudentDashboard />
-            </ProtectedRoute>
+            </RoleRoute>
           }
         />
 
-
+        {/* Teacher Route */}
         <Route
           path="/teacher"
           element={
-            <ProtectedRoute allowedRoles={["Teacher", "Admin"]}>
+            <RoleRoute allowed={["Teacher"]}>
               <TeacherDashboard />
-            </ProtectedRoute>
+            </RoleRoute>
           }
         />
 
-
+        {/* Admin Route (nested pages inside) */}
         <Route
           path="/admin"
           element={
-            <ProtectedRoute allowedRoles={["Admin"]}>
+            <RoleRoute allowed={["Admin"]}>
               <AdminDashboard />
-            </ProtectedRoute>
+            </RoleRoute>
           }
         >
           <Route path="users" element={<UsersPage />} />
           <Route path="create-user" element={<CreateUserPage />} />
-
         </Route>
 
-
+        {/* Unauthorized Page */}
         <Route path="/not-authorized" element={<NotAuthorized />} />
       </Routes>
 

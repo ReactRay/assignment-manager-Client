@@ -10,10 +10,12 @@ export default function UserRow({ user, onAddRole, onRemoveRole }: Props) {
             <td>{user.fullName}</td>
             <td>{user.email}</td>
 
+
+
             <td>
-                <div className="role-badges">
+                <div className="role-badge-group">
                     {user.roles.map((role: string) => (
-                        <span className="role-pill" key={role}>
+                        <span className="role-badge" key={role}>
                             {role}
                             <button
                                 className="remove-btn"
@@ -29,10 +31,8 @@ export default function UserRow({ user, onAddRole, onRemoveRole }: Props) {
             <td>
                 <select
                     defaultValue=""
-                    className="action-select"
-                    onChange={(e) =>
-                        onAddRole(user.id, e.target.value)
-                    }
+                    className="role-select"
+                    onChange={(e) => onAddRole(user.id, e.target.value)}
                 >
                     <option value="" disabled>
                         Add role...
@@ -42,6 +42,7 @@ export default function UserRow({ user, onAddRole, onRemoveRole }: Props) {
                     <option value="Student">Student</option>
                 </select>
             </td>
+
         </tr>
     );
 }

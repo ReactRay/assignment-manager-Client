@@ -28,6 +28,7 @@ export default function Navbar() {
                 {/* Desktop menu */}
                 <ul className="nav-links">
                     <li><Link to="/">Home</Link></li>
+                    <li><Link to="/guide">Guide</Link></li>
 
                     {!isAuthenticated && (
                         <>

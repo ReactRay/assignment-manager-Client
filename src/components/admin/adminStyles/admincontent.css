@@ -1,11 +1,12 @@
-.admin-layout {
-    display: flex;
-    width: 100%;
-}
-
 .admin-content {
     flex: 1;
-    margin-left: 250px;
-    /* sidebar width */
-    padding: var(--space-10);
+    padding: 2rem;
+    overflow-y: auto;
+    background: var(--bg-light);
+}
+
+@media (max-width: 850px) {
+    .admin-content {
+        padding: 1rem;
+    }
 }

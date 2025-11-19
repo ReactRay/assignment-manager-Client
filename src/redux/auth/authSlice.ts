@@ -1,15 +1,16 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { type AuthState } from "./authTypes";
 import { loginThunk, registerThunk } from "./authThunks";
 import { type UserDto } from "../../types/auth";
 
-const initialState: AuthState = {
+const initialState = {
     user: null,
     token: null,
     isAuthenticated: false,
     status: "idle",
     error: null,
+    loaded: false
 };
+
 
 const authSlice = createSlice({
     name: "auth",
@@ -29,10 +30,13 @@ const authSlice = createSlice({
 
             if (token && user) {
                 state.token = token;
-                state.user = JSON.parse(user) as UserDto;
+                state.user = JSON.parse(user);
                 state.isAuthenticated = true;
             }
+
+            state.loaded = true;   // <-- mark finished
         },
+
     },
 
     extraReducers: (builder) => {

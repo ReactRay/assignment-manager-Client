@@ -1,84 +1,67 @@
 .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 80px;
-    /* SLIM */
-    background: #ffffff;
-    border-right: 1px solid #e5e7eb;
-    padding: 1rem 0;
+    width: 260px;
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    height: 100%;
+    padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
-    transition: width 0.25s ease;
-    overflow: hidden;
-    z-index: 20;
-}
-
-/* EXPAND ON HOVER */
-.sidebar:hover {
-    width: 220px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-
-.sidebar-top {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.sidebar-logo {
-    font-size: 2rem;
-    color: var(--blue-main);
+    transition: transform 0.3s ease;
 }
 
 .sidebar-menu {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .sidebar-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0.9rem 1.2rem;
-    color: #444;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    white-space: nowrap;
-    border-radius: 10px;
-    margin: 0 0.5rem;
-    transition: background 0.2s ease, color 0.2s ease;
+    gap: .8rem;
+    padding: .75rem 1rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-dark);
+    transition: var(--normal);
 }
 
-.sidebar:hover .sidebar-item {
-    padding-left: 1.5rem;
-}
-
-.sidebar-icon {
-    font-size: 1.4rem;
-    flex-shrink: 0;
-}
-
-/* Hide labels until hover */
-.sidebar-label {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.sidebar:hover .sidebar-label {
-    opacity: 1;
-}
-
-/* ACTIVE STATE */
+.sidebar-item:hover,
 .sidebar-item.active {
-    background: var(--blue-main);
-    color: white;
+    background: var(--bg-light);
+    font-weight: 600;
 }
 
-.sidebar-item:hover {
-    background: var(--blue-light);
-    color: white;
+.sidebar-toggle {
+    display: none;
+}
+
+/* MOBILE SIDEBAR */
+@media (max-width: 850px) {
+
+    .sidebar {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        height: calc(100vh - 70px);
+        transform: translateX(-100%);
+        z-index: 9999;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+        display: flex;
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        z-index: 10000;
+        background: var(--blue-main);
+        color: white;
+        font-size: 1.2rem;
+        padding: .6rem;
+        border-radius: 6px;
+        box-shadow: var(--shadow-md);
+    }
 }
