@@ -54,6 +54,7 @@ export default function Navbar() {
             {/* Mobile menu */}
             <ul className={`mobile-menu ${open ? "open" : ""}`}>
                 <li onClick={() => setOpen(false)}><Link to="/">Home</Link></li>
+                <li onClick={() => setOpen(false)}><Link to="/guide">Guide</Link></li>
 
                 {!isAuthenticated && (
                     <>
