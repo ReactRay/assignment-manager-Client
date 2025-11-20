@@ -1,30 +1,28 @@
 import axios from "axios";
 
-// Auto-detect environment
-const isDevelopment = import.meta.env.MODE === "development";
+const baseURL = import.meta.env.DEV
+    ? "http://localhost:5001/api"
+    : "https://app-schoolsit-eastus-dev-001-e3bgeqbjfqdqhnbv.canadacentral-01.azurewebsites.net/api";
 
-// Localhost for dev, Azure for production
-const baseURL = "https://app-schoolsit-eastus-dev-001-e3bgeqbjfqdqhnbv.canadacentral-01.azurewebsites.net/api"
 const axiosClient = axios.create({
     baseURL,
     withCredentials: false,
 });
 
-
+console.log(import.meta.env.DEV)
+// Attach token
 axiosClient.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem("token");
-
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
-
         return config;
     },
     (error) => Promise.reject(error)
 );
 
-// Handle Unauthorized / Forbidden responses
+// Handle 401/403
 axiosClient.interceptors.response.use(
     (response) => response,
     (error) => {
@@ -34,7 +32,7 @@ axiosClient.interceptors.response.use(
         }
 
         if (error.response?.status === 403) {
-            console.warn("Forbidden: You do not have permission for this action.");
+            console.warn("Forbidden");
         }
 
         return Promise.reject(error);
