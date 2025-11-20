@@ -16,8 +16,12 @@ export default function Home() {
             navigate("/login");
             return;
         }
-        navigate("/admin");
+
+        if (user.role === "Admin") navigate("/admin");
+        else if (user.role === "Teacher") navigate("/teacher");
+        else navigate("/student");
     };
+
 
     return (
         <>
