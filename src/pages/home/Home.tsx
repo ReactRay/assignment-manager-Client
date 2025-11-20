@@ -17,8 +17,10 @@ export default function Home() {
             return;
         }
 
-        if (user.role === "Admin") navigate("/admin");
-        else if (user.role === "Teacher") navigate("/teacher");
+        const role = user.roles?.[0];
+
+        if (role === "Admin") navigate("/admin");
+        else if (role === "Teacher") navigate("/teacher");
         else navigate("/student");
     };
 
