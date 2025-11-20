@@ -1,9 +1,18 @@
 import axios from "axios";
 
+// Auto-detect environment
+const isDevelopment = import.meta.env.MODE === "development";
+
+// Localhost for dev, Azure for production
+const baseURL = isDevelopment
+    ? "https://localhost:5001/api"
+    : "https://app-schoolsit-eastus-dev-001-e3bgeqbjfqdqhnbv.canadacentral-01.azurewebsites.net/api";
+
 const axiosClient = axios.create({
-    baseURL: "https://localhost:5001/api",
+    baseURL,
     withCredentials: false,
 });
+
 
 axiosClient.interceptors.request.use(
     (config) => {
@@ -15,19 +24,16 @@ axiosClient.interceptors.request.use(
 
         return config;
     },
-    (error) => {
-        return Promise.reject(error);
-    }
+    (error) => Promise.reject(error)
 );
 
-// --- RESPONSE INTERCEPTOR: Handle unauthorized responses ---
+// Handle Unauthorized / Forbidden responses
 axiosClient.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error.response?.status === 401) {
-            // Token expired OR no token
             localStorage.removeItem("token");
-            window.location.href = "/login";   // force redirect
+            window.location.href = "/login";
         }
 
         if (error.response?.status === 403) {
@@ -37,6 +43,5 @@ axiosClient.interceptors.response.use(
         return Promise.reject(error);
     }
 );
-
 
 export default axiosClient;
