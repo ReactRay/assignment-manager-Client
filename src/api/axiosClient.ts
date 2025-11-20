@@ -4,10 +4,7 @@ import axios from "axios";
 const isDevelopment = import.meta.env.MODE === "development";
 
 // Localhost for dev, Azure for production
-const baseURL = isDevelopment
-    ? "https://localhost:5001/api"
-    : "https://app-schoolsit-eastus-dev-001-e3bgeqbjfqdqhnbv.canadacentral-01.azurewebsites.net/api";
-
+const baseURL = "https://app-schoolsit-eastus-dev-001-e3bgeqbjfqdqhnbv.canadacentral-01.azurewebsites.net/api"
 const axiosClient = axios.create({
     baseURL,
     withCredentials: false,
