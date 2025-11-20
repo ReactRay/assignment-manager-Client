@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseURL = import.meta.env.DEV
-    ? "http://localhost:5001/api"
+    ? "https://localhost:5001/api"
     : "https://app-schoolsit-eastus-dev-001-e3bgeqbjfqdqhnbv.canadacentral-01.azurewebsites.net/api";
 
 const axiosClient = axios.create({
