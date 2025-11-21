@@ -120,3 +120,60 @@
     font-weight: 600;
     border: none;
 }
+
+.viewsubs-modal {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+
+.viewsubs-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+@media (max-width: 768px) {
+    .viewsubs-modal {
+        max-width: 95%;
+        padding: var(--space-4);
+    }
+
+    .viewsubs-title {
+        font-size: 1.3rem;
+    }
+
+    .viewsubs-table th,
+    .viewsubs-table td {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .viewsubs-actions {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .viewsubs-btn-primary,
+    .viewsubs-btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .viewsubs-modal {
+        max-width: 98%;
+        padding: var(--space-3);
+    }
+
+    .viewsubs-title {
+        font-size: 1.1rem;
+    }
+
+    .viewsubs-btn-cancel {
+        width: 100%;
+    }
+}
