@@ -16,7 +16,7 @@ export default function Guide() {
 
             <h3 className="guide-subheading">1.1 Admin Dashboard</h3>
             <p>The dashboard gives you quick access to all management tools.</p>
-            <img src="/main1.png" alt="Admin dashboard" className="guide-image" />
+            <img src="/admin-dash.png" alt="Admin dashboard" className="guide-image" />
 
             <ul className="guide-list">
                 <li>View all users in the system</li>
@@ -27,7 +27,7 @@ export default function Guide() {
 
             <h3 className="guide-subheading">1.2 Managing Users</h3>
             <p>Admins can search, filter, and edit user roles easily.</p>
-            <img src="/main2.png" alt="Users list" className="guide-image" />
+            <img src="/admin-users.png" alt="Users list" className="guide-image" />
 
             <ol className="guide-list-numbered">
                 <li>Search by name or email</li>
@@ -38,7 +38,7 @@ export default function Guide() {
 
             <h3 className="guide-subheading">1.3 Creating a New User</h3>
             <p>Admins can add new users directly:</p>
-            <img src="/main3.png" alt="Create user" className="guide-image" />
+            <img src="/admin-createuser.png" alt="Create user" className="guide-image" />
             <ul className="guide-list">
                 <li>Enter the user's name and email</li>
                 <li>Choose a password</li>
@@ -54,9 +54,7 @@ export default function Guide() {
 
             <h3 className="guide-subheading">2.1 Teacher Dashboard</h3>
             <ul className="guide-list">
-                <li>View all assigned classes or subjects</li>
                 <li>See submissions from students</li>
-                <li>Review, approve, or return submissions</li>
                 <li>Download or view submitted files</li>
             </ul>
 
@@ -64,17 +62,9 @@ export default function Guide() {
             <ol className="guide-list-numbered">
                 <li>Open the “Submissions” page</li>
                 <li>Choose a student’s submission from the list</li>
-                <li>Download or open the uploaded file</li>
-                <li>Mark the submission as completed, pending, or rejected</li>
-                <li>Leave optional feedback</li>
+                <li>Download the uploaded file</li>
+                <li>Grade the student's submission</li>
             </ol>
-
-            <h3 className="guide-subheading">2.3 Teacher Tools</h3>
-            <ul className="guide-list">
-                <li>Access student data related to your class</li>
-                <li>Track progress and deadlines</li>
-                <li>Communicate feedback</li>
-            </ul>
 
             <hr className="guide-divider" />
 
@@ -95,19 +85,11 @@ export default function Guide() {
                 <li>Select the relevant assignment</li>
                 <li>Upload your file (PDF, image, etc.)</li>
                 <li>Press “Submit” to send it to your teacher</li>
-                <li>Check back later for teacher feedback</li>
+                <li>Check back later for grade on assignment</li>
             </ol>
-
-            <h3 className="guide-subheading">3.3 Submission Status</h3>
-            <ul className="guide-list">
-                <li><strong>Pending:</strong> Teacher has not reviewed it yet</li>
-                <li><strong>Completed:</strong> Teacher approved the submission</li>
-                <li><strong>Rejected:</strong> Submission needs to be fixed and resubmitted</li>
-            </ul>
 
             <hr className="guide-divider" />
 
-            {/* VIDEO */}
             <h2 className="guide-heading">🎥 4. Video Guide</h2>
             <p>Watch the full walkthrough of the system below.</p>
 
