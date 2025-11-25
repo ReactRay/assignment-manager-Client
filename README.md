@@ -18,7 +18,7 @@ https://assignment-manager-client-j9x3.vercel.app/
 
 ## 📂 Repositories
 
-- Frontend: https://github.com/ReactRay/assignment-manager-Client\
+- Frontend: https://github.com/ReactRay/assignment-manager-Client
 - Backend: https://github.com/ReactRay/assignment-manager-API
 
 ---
@@ -77,8 +77,6 @@ https://assignment-manager-client-j9x3.vercel.app/
 - Azure App Service (Backend)
 - Azure SQL Database
 - CI/CD GitHub Actions pipeline automatically builds & deploys the API to Azure on every push to `main`.
-
-
 
 ---
 
