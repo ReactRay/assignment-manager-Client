@@ -1,103 +1,103 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
     createAdminThunk,
     createTeacherThunk,
     createStudentThunk
 } from "../../redux/admin/adminThunks";
 import "./adminPageStyles/createUserPage.css";
-
+import { type RootState } from "../../redux/index";
 export default function CreateUserPage() {
     const dispatch = useDispatch<any>();
+    const { loading, error } = useSelector((state: RootState) => state.admin);
 
-    const [role, setRole] = useState("Student");
-    const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [form, setForm] = useState({
+        fullName: "",
+        email: "",
+        password: "",
+        role: "Student",
+    });
 
-    const [status, setStatus] = useState("");
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
+        const { name, value } = e.target;
+        setForm((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        setStatus("loading");
+        const thunkMap: any = {
+            Admin: createAdminThunk,
+            Teacher: createTeacherThunk,
+            Student: createStudentThunk,
+        };
 
-        const dto = { fullName, email, password };
+        const thunk = thunkMap[form.role];
+        const result = await dispatch(thunk(form));
 
-        let action;
-        if (role === "Admin") action = createAdminThunk(dto);
-        if (role === "Teacher") action = createTeacherThunk(dto);
-        if (role === "Student") action = createStudentThunk(dto);
+        if (thunk.rejected.match(result)) return;
 
-        try {
-            await dispatch(action);
-            setStatus("success");
-            setFullName("");
-            setEmail("");
-            setPassword("");
-        } catch {
-            setStatus("error");
-        }
+        setForm({ fullName: "", email: "", password: "", role: "Student" });
     };
+
 
     return (
         <div className="create-user-page">
             <h2>Create New User</h2>
 
             <form className="create-user-form" onSubmit={handleSubmit}>
-                {/* ROLE SELECT */}
                 <label>Role</label>
                 <select
                     className="input"
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
+                    name="role"
+                    value={form.role}
+                    onChange={handleChange}
                 >
                     <option value="Student">Student</option>
                     <option value="Teacher">Teacher</option>
                     <option value="Admin">Admin</option>
                 </select>
 
-                {/* FULL NAME */}
                 <label>Full Name</label>
                 <input
                     className="input"
                     type="text"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    placeholder="John Doe"
+                    name="fullName"
+                    value={form.fullName}
+                    onChange={handleChange}
                 />
 
-                {/* EMAIL */}
                 <label>Email</label>
                 <input
                     className="input"
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="example@email.com"
+                    name="email"
+                    value={form.email}
+                    onChange={handleChange}
                 />
 
-                {/* PASSWORD */}
                 <label>Password</label>
                 <input
                     className="input"
                     type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="********"
+                    name="password"
+                    value={form.password}
+                    onChange={handleChange}
                 />
 
-                <button className="create-btn" type="submit">
-                    Create User
+                <button className="create-btn" type="submit" disabled={loading}>
+                    {loading ? "Creating..." : "Create User"}
                 </button>
             </form>
 
-            {status === "loading" && <p className="status loading">Creating...</p>}
-            {status === "success" && (
+            {error && <p className="status error">{error}</p>}
+            {!loading && !error && form.fullName === "" && (
                 <p className="status success">User created successfully!</p>
-            )}
-            {status === "error" && (
-                <p className="status error">Something went wrong.</p>
             )}
         </div>
     );

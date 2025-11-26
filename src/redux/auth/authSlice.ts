@@ -46,7 +46,7 @@ const authSlice = createSlice({
     },
 
     extraReducers: (builder) => {
-        // LOGIN
+        // login
         builder.addCase(loginThunk.pending, (state) => {
             state.status = "loading";
         });
@@ -66,7 +66,7 @@ const authSlice = createSlice({
             state.error = action.error.message ?? "Login failed";
         });
 
-        // REGISTER
+        //register
         builder.addCase(registerThunk.pending, (state) => {
             state.status = "loading";
         });

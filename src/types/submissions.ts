@@ -12,7 +12,7 @@ export interface SubmissionDto {
 
 export interface SubmissionCreateDto {
     assignmentId: string;
-    file: File; // Browser File instead of IFormFile
+    file: File; // or i might change it to IformFile if this does not work ...
 }
 
 export interface GradeSubmissionDto {

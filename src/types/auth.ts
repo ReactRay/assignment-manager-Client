@@ -7,14 +7,14 @@ export interface RegisterDto {
     fullName: string;
     email: string;
     password: string;
-    role: "Teacher" | "Student" | "Admin"; // you said Admin exists too
+    role: "Teacher" | "Student" | "Admin";
 }
 
 export interface UserDto {
     id: string;
     fullName: string;
     email: string;
-    roles: string[]; // e.g. ["Teacher"]
+    roles: string[]; //examplee ["Teacher"]
 }
 
 export interface LoginResponse {
