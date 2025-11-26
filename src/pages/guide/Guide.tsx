@@ -50,15 +50,19 @@ export default function Guide() {
 
             {/* TEACHER SECTION */}
             <h2 className="guide-heading">📚 2. Teacher Guide</h2>
-            <p>Teachers can manage their classes, assignments, and student submissions.</p>
+            <p>Teachers can manage assignments , download and grade student submissions.</p>
+            <img src="/teacherDash.png" alt="Users list" className="guide-image" />
 
             <h3 className="guide-subheading">2.1 Teacher Dashboard</h3>
+
             <ul className="guide-list">
                 <li>See submissions from students</li>
                 <li>Download or view submitted files</li>
             </ul>
 
             <h3 className="guide-subheading">2.2 Reviewing Student Submissions</h3>
+            <img src="/teacherView.png" alt="Users list" className="guide-image" />
+
             <ol className="guide-list-numbered">
                 <li>Open the “Submissions” page</li>
                 <li>Choose a student’s submission from the list</li>
@@ -71,6 +75,7 @@ export default function Guide() {
             {/* STUDENT SECTION */}
             <h2 className="guide-heading">🎒 3. Student Guide</h2>
             <p>Students can view teacher assignments and upload their work.</p>
+            <img src="/StudentView.png" alt="Users list" className="guide-image" />
 
             <h3 className="guide-subheading">3.1 Student Dashboard</h3>
             <ul className="guide-list">
@@ -80,6 +85,8 @@ export default function Guide() {
             </ul>
 
             <h3 className="guide-subheading">3.2 Submitting Work</h3>
+            <img src="/studentUpload.png" alt="Users list" className="guide-image" />
+
             <ol className="guide-list-numbered">
                 <li>Go to the “Assignments” page</li>
                 <li>Select the relevant assignment</li>
