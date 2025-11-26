@@ -14,7 +14,7 @@ import {
     FiUserCheck,
     FiBook,
     FiClipboard,
-    FiGrid
+
 } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/auth/authSlice";
