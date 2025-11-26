@@ -73,3 +73,9 @@
         text-align: center;
     }
 }
+
+.teacherassign-row-actions button svg {
+    margin-right: 6px;
+    vertical-align: middle;
+    font-size: 1.1rem;
+}

@@ -45,3 +45,9 @@
         font-size: 0.85rem;
     }
 }
+
+.teacherassign-table th svg {
+    margin-right: 6px;
+    vertical-align: middle;
+    font-size: 1.1rem;
+}

@@ -172,3 +172,10 @@
         width: 100%;
     }
 }
+
+.viewsubs-actions button svg,
+.viewsubs-btn-cancel svg {
+    margin-right: 6px;
+    font-size: 1.1rem;
+    vertical-align: middle;
+}

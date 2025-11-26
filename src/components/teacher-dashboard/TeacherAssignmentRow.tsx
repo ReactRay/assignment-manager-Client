@@ -5,6 +5,9 @@ import ViewSubmissionsModal from "./ViewSubmissionModal";
 import { useAppDispatch } from "../../redux";
 import { deleteAssignmentThunk } from "../../redux/assignments/teacherAssignmentThunks";
 
+// Icons
+import { FiEye, FiEdit3, FiTrash2 } from "react-icons/fi";
+
 export default function TeacherAssignmentRow({ assignment }: any) {
     const dispatch = useAppDispatch();
     const [openEdit, setOpenEdit] = useState(false);
@@ -29,17 +32,28 @@ export default function TeacherAssignmentRow({ assignment }: any) {
 
                 <td>
                     <div className="teacherassign-row-actions">
-                        <button className="teacherassign-btn-secondary" onClick={() => setOpenSubs(true)}>
-                            View Submissions
+
+                        <button
+                            className="teacherassign-btn-secondary"
+                            onClick={() => setOpenSubs(true)}
+                        >
+                            <FiEye /> View Submissions
                         </button>
 
-                        <button className="teacherassign-btn-primary" onClick={() => setOpenEdit(true)}>
-                            Edit
+                        <button
+                            className="teacherassign-btn-primary"
+                            onClick={() => setOpenEdit(true)}
+                        >
+                            <FiEdit3 /> Edit
                         </button>
 
-                        <button className="teacherassign-btn-danger" onClick={handleDelete}>
-                            Delete
+                        <button
+                            className="teacherassign-btn-danger"
+                            onClick={handleDelete}
+                        >
+                            <FiTrash2 /> Delete
                         </button>
+
                     </div>
                 </td>
             </tr>

@@ -4,6 +4,10 @@ import GradeSubmissionModal from './GradeSubmissionModal';
 import { useEffect, useState } from "react";
 import { getSubmissionsForAssignment } from "../../api/submissionsApi";
 import api from "../../api/axiosClient";
+
+// Icons
+import { FiDownload, FiEdit3, FiX } from "react-icons/fi";
+
 export default function ViewSubmissionsModal({ assignmentId, title, close }: any) {
     const [submissions, setSubmissions] = useState([]);
     const [openGrade, setOpenGrade] = useState<any>(null);
@@ -25,7 +29,6 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
 
             const mime = res.data.type;
 
-            // extract filename from content-disposition
             const header = res.headers["content-disposition"];
             let fileName = "file";
 
@@ -39,7 +42,7 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
 
             const a = document.createElement("a");
             a.href = url;
-            a.download = fileName; // <-- THE REAL FILENAME
+            a.download = fileName;
             a.click();
 
             window.URL.revokeObjectURL(url);
@@ -47,7 +50,6 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
             console.error("Download failed", err);
         }
     };
-
 
     return (
         <div className="viewsubs-overlay">
@@ -78,19 +80,21 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
 
                                 <td>
                                     <div className="viewsubs-actions">
+
                                         <button
                                             className="viewsubs-btn-secondary"
                                             onClick={() => handleDownload(s.id)}
                                         >
-                                            Download
+                                            <FiDownload /> Download
                                         </button>
 
                                         <button
                                             className="viewsubs-btn-primary"
                                             onClick={() => setOpenGrade(s)}
                                         >
-                                            Grade
+                                            <FiEdit3 /> Grade
                                         </button>
+
                                     </div>
                                 </td>
                             </tr>
@@ -100,7 +104,7 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
 
                 <div className="viewsubs-footer">
                     <button className="viewsubs-btn-cancel" onClick={close}>
-                        Close
+                        <FiX /> Close
                     </button>
                 </div>
 

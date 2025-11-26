@@ -46,10 +46,16 @@
     .studentassign-table th,
     .studentassign-table td {
         padding: var(--space-3);
-        font-size: 0.8rem;
+        font-size: 0.64rem;
     }
 
     .studentassign-table {
         min-width: 700px;
     }
+}
+
+.studentassign-table th svg {
+    margin-right: 6px;
+    vertical-align: middle;
+    font-size: 1rem;
 }
