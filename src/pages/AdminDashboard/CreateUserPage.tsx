@@ -7,6 +7,10 @@ import {
 } from "../../redux/admin/adminThunks";
 import "./adminPageStyles/createUserPage.css";
 import { type RootState } from "../../redux/index";
+
+// Icons
+import { FiShield, FiUser, FiMail, FiLock, FiUserPlus } from "react-icons/fi";
+
 export default function CreateUserPage() {
     const dispatch = useDispatch<any>();
     const { loading, error } = useSelector((state: RootState) => state.admin);
@@ -45,53 +49,73 @@ export default function CreateUserPage() {
         setForm({ fullName: "", email: "", password: "", role: "Student" });
     };
 
-
     return (
         <div className="create-user-page">
             <h2>Create New User</h2>
 
             <form className="create-user-form" onSubmit={handleSubmit}>
+
+                {/* ROLE */}
                 <label>Role</label>
-                <select
-                    className="input"
-                    name="role"
-                    value={form.role}
-                    onChange={handleChange}
-                >
-                    <option value="Student">Student</option>
-                    <option value="Teacher">Teacher</option>
-                    <option value="Admin">Admin</option>
-                </select>
+                <div className="input-wrapper">
+                    <FiShield />
+                    <select
+                        className="input"
+                        name="role"
+                        value={form.role}
+                        onChange={handleChange}
+                    >
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
 
+                {/* FULL NAME */}
                 <label>Full Name</label>
-                <input
-                    className="input"
-                    type="text"
-                    name="fullName"
-                    value={form.fullName}
-                    onChange={handleChange}
-                />
+                <div className="input-wrapper">
+                    <FiUser />
+                    <input
+                        className="input"
+                        type="text"
+                        name="fullName"
+                        placeholder="Enter full name"
+                        value={form.fullName}
+                        onChange={handleChange}
+                    />
+                </div>
 
+                {/* EMAIL */}
                 <label>Email</label>
-                <input
-                    className="input"
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                />
+                <div className="input-wrapper">
+                    <FiMail />
+                    <input
+                        className="input"
+                        type="email"
+                        name="email"
+                        placeholder="Enter email"
+                        value={form.email}
+                        onChange={handleChange}
+                    />
+                </div>
 
+                {/* PASSWORD */}
                 <label>Password</label>
-                <input
-                    className="input"
-                    type="password"
-                    name="password"
-                    value={form.password}
-                    onChange={handleChange}
-                />
+                <div className="input-wrapper">
+                    <FiLock />
+                    <input
+                        className="input"
+                        type="password"
+                        name="password"
+                        placeholder="Enter password"
+                        value={form.password}
+                        onChange={handleChange}
+                    />
+                </div>
 
+                {/* SUBMIT BUTTON */}
                 <button className="create-btn" type="submit" disabled={loading}>
-                    {loading ? "Creating..." : "Create User"}
+                    {loading ? "Creating..." : <><FiUserPlus /> Create User</>}
                 </button>
             </form>
 

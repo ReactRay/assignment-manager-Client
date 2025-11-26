@@ -1,4 +1,5 @@
 import UserRow from "./UserRow";
+import { FiUser, FiMail, FiAward, FiSettings } from "react-icons/fi";
 
 interface Props {
     users: any[];
@@ -13,10 +14,10 @@ export default function UsersList({ users, onAddRole, onRemoveRole }: Props) {
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th>Actions</th>
+                            <th><FiUser /> Name</th>
+                            <th><FiMail /> Email</th>
+                            <th><FiAward /> Roles</th>
+                            <th><FiSettings /> Actions</th>
                         </tr>
                     </thead>
 

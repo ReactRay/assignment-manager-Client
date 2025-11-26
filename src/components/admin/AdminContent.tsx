@@ -13,7 +13,7 @@ export default function AdminContent() {
 
     return (
         <>
-            <Sidebar />
+
             <main className="admin-content">
                 {isRoot ? <DashboardWelcome /> : <Outlet />}
             </main>

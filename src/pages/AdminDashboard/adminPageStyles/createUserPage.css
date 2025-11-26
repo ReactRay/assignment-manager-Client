@@ -63,3 +63,62 @@
 .status.error {
     color: red;
 }
+
+/* Loading spinner */
+.loading svg {
+    margin-right: 6px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Table header icons */
+.users-table th svg {
+    margin-right: 6px;
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+/* Role badge remove icon */
+.role-badge .remove-btn svg {
+    font-size: 0.9rem;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.7rem 1rem;
+    background: #f7f9fc;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.input-wrapper svg {
+    font-size: 1.2rem;
+    color: var(--blue-main);
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+}
+
+.create-btn svg {
+    margin-right: 6px;
+    vertical-align: middle;
+    font-size: 1.2rem;
+}

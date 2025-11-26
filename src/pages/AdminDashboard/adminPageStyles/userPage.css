@@ -170,3 +170,58 @@
     width: 100%;
 
 }
+
+/* Loading spinner */
+.loading svg {
+    margin-right: 6px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Table header icons */
+.users-table th svg {
+    margin-right: 6px;
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+/* Role badge remove icon */
+.role-badge .remove-btn svg {
+    font-size: 0.9rem;
+}
+
+/* Filter bar */
+.filter-input-wrapper,
+.filter-select-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background: white;
+}
+
+.filter-input-wrapper svg,
+.filter-select-wrapper svg {
+    font-size: 1.1rem;
+    color: var(--blue-main);
+}
+
+.filter-input-wrapper input,
+.filter-select-wrapper select {
+    border: none;
+    outline: none;
+    flex: 1;
+    background: transparent;
+    font-size: 0.95rem;
+}

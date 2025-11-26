@@ -7,7 +7,8 @@ import {
 } from "../../redux/admin/adminThunks";
 import UsersFilter from "./UserFilter";
 import UsersList from "./UserList";
-import './adminPageStyles/userPage.css'
+import './adminPageStyles/userPage.css';
+import { FiLoader } from "react-icons/fi";
 
 export default function UsersPage() {
     const dispatch = useDispatch<any>();
@@ -20,7 +21,6 @@ export default function UsersPage() {
         dispatch(fetchUsersThunk());
     }, []);
 
-    // Filtered users (pure logic)
     const filteredUsers = users.filter((u: any) => {
         const matchesSearch =
             u.fullName.toLowerCase().includes(search.toLowerCase()) ||
@@ -32,23 +32,19 @@ export default function UsersPage() {
         return matchesSearch && matchesRole;
     });
 
-    // role actions
     const handleAddRole = (userId: string, role: string) => {
-        dispatch(assignRoleThunk({ userId, roleName: role })).then(() =>
-            dispatch(fetchUsersThunk())
-        );
+        dispatch(assignRoleThunk({ userId, roleName: role }))
+            .then(() => dispatch(fetchUsersThunk()));
     };
 
     const handleRemoveRole = (userId: string, role: string) => {
-        dispatch(removeRoleThunk({ userId, roleName: role })).then(() =>
-            dispatch(fetchUsersThunk())
-        );
+        dispatch(removeRoleThunk({ userId, roleName: role }))
+            .then(() => dispatch(fetchUsersThunk()));
     };
 
     return (
         <div className="users-page">
 
-            {/* Filter UI */}
             <UsersFilter
                 search={search}
                 roleFilter={roleFilter}
@@ -56,9 +52,8 @@ export default function UsersPage() {
                 onRoleChange={setRoleFilter}
             />
 
-            {/* Table/List */}
             {loading ? (
-                <p className="loading">Loading...</p>
+                <p className="loading"><FiLoader className="spin" /> Loading...</p>
             ) : (
                 <UsersList
                     users={filteredUsers}
