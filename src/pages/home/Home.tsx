@@ -6,9 +6,12 @@ import LandingHighlights from "../../components/landingHighlights/LandingHighLig
 import { useSelector } from "react-redux";
 import { type RootState } from "../../redux/index";
 
+// ICONS
+import { FiVideo } from "react-icons/fi";
+
 export default function Home() {
 
-    const user = useSelector((state: RootState) => state.auth.user); // FIXED
+    const user = useSelector((state: RootState) => state.auth.user);
     const navigate = useNavigate();
 
     const handleGetStarted = () => {
@@ -23,7 +26,6 @@ export default function Home() {
         else if (role === "Teacher") navigate("/teacher");
         else navigate("/student");
     };
-
 
     return (
         <>
@@ -40,10 +42,10 @@ export default function Home() {
                     </p>
 
                     <div className="home-buttons">
-                        <FancyButton text="Get Started" onClick={handleGetStarted} />
+                        <FancyButton text="Get Started" color="blue" onClick={handleGetStarted} />
 
                         <Link to="/guide">
-                            <FancyButton text="How to use" />
+                            <FancyButton text="How to use" color="yellow" />
                         </Link>
                     </div>
 
@@ -57,10 +59,12 @@ export default function Home() {
 
             <LandingHighlights />
 
-
             <div className="guide-video-wrapper">
-                <h2 className="guide-heading">🎥 Video Guide</h2>
+                <h2 className="guide-heading">
+                    <FiVideo /> Video Guide
+                </h2>
                 <p>Watch the full walkthrough of the system below.</p>
+
                 <video
                     className="guide-video"
                     controls

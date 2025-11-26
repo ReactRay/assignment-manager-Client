@@ -31,7 +31,8 @@
 
 .home-buttons {
     display: flex;
-    gap: var(--space-4);
+    gap: var(--space-8);
+
 }
 
 /* RIGHT SIDE (IMAGE) */
@@ -77,6 +78,10 @@
 
     .home-image {
         max-width: 420px;
+    }
+
+    .home-buttons {
+        flex-direction: column;
     }
 }
 

@@ -37,8 +37,11 @@
 
 .footer-links a {
     color: var(--blue-main);
-    font-size: 1.5rem;
     transition: var(--normal);
+
+    svg {
+        font-size: 1.8rem;
+    }
 }
 
 .footer-links a:hover {

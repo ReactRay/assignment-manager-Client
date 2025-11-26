@@ -1,6 +1,5 @@
 .fancy-btn {
     position: relative;
-    background: var(--blue-main);
     color: white;
     padding: 0.9rem 1.8rem;
     border-radius: 10px;
@@ -12,19 +11,17 @@
     align-items: center;
     gap: 0.6rem;
     transition: 0.3s ease;
-    border: 2px solid #fff;
 }
 
-/* Outline bubble behind the button */
 .fancy-btn::before {
     content: "";
     position: absolute;
-    top: -10px;
-    left: -12px;
+    top: -12px;
+    left: -14px;
     width: 100%;
     height: 100%;
     border-radius: 50px;
-    border: 3px solid var(--blue-main);
+
     z-index: -1;
     transition: 0.3s ease;
 }
@@ -33,13 +30,35 @@
 .fancy-btn:hover {
     transform: translateY(-2px);
     opacity: 0.95;
+    z-index: 10;
 }
 
 .fancy-btn:hover::before {
     top: -10px;
     left: -10px;
+    z-index: -1;
 }
 
 .arrow-icon {
     font-size: 1.2rem;
+}
+
+.blue {
+    background-color: var(--blue-main);
+
+
+}
+
+.yellow {
+    background-color: var(--yellow-main);
+
+
+}
+
+.fancy-btn.yellow::before {
+    border: 3px solid var(--yellow-main);
+}
+
+.fancy-btn.blue::before {
+    border: 3px solid var(--blue-main);
 }

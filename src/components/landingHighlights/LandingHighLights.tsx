@@ -7,14 +7,18 @@ import {
     FiBook,
     FiUpload,
     FiCheckCircle,
-    FiBarChart2
+    FiTrendingUp,
+    FiStar
 } from "react-icons/fi";
 
 export default function LandingHighlights() {
     return (
         <div className="landing-highlights">
 
-            <h2 className="lh-title">✨ What You Can Do</h2>
+            <h2 className="lh-title">
+                <FiStar /> What You Can Do
+            </h2>
+
             <p className="lh-subtitle">
                 A quick overview of features available in the system.
             </p>
@@ -39,7 +43,7 @@ export default function LandingHighlights() {
                         <li><FiBook /> View tasks & assignments</li>
                         <li><FiUpload /> Upload submissions</li>
                         <li><FiCheckCircle /> Review student work</li>
-                        <li><FiBarChart2 /> Track progress</li>
+                        <li><FiTrendingUp /> Track progress</li>
                     </ul>
                 </div>
 
