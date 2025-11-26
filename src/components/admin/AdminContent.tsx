@@ -1,5 +1,4 @@
 import { Outlet, useLocation } from "react-router-dom";
-import Sidebar from "./Sidebar";
 import "./adminStyles/admincontent.css";
 import "./adminStyles/dashboardWelcome.css";
 import { Link } from "react-router-dom";
