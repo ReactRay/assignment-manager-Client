@@ -1,20 +1,44 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../../actions/authActions";
-import './auth.css';
+import { loginThunk } from "../../redux/auth/authThunks";
+import { type RootState } from "../../redux";
+import "./auth.css";
 
 export default function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<any>();
     const navigate = useNavigate();
 
-    const { status, error } = useSelector((state: any) => state.auth);
+    const { status, error } = useSelector((state: RootState) => state.auth);
 
-    const handleLogin = () => {
-        dispatch(loginUser(email, password, navigate) as any);
+    const [form, setForm] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const { name, value } = e.target;
+        setForm(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            const result = await dispatch(loginThunk(form)).unwrap();
+
+            const rawRole = result.user.roles?.[0] ?? "Student";
+            const role = rawRole.charAt(0).toUpperCase() + rawRole.slice(1).toLowerCase();
+
+            if (role === "Admin") navigate("/admin");
+            else if (role === "Teacher") navigate("/teacher");
+            else navigate("/student");
+
+        } catch (_) {
+            //redux will handle
+        }
     };
 
     return (
@@ -23,34 +47,34 @@ export default function Login() {
                 <h2>Welcome Back</h2>
                 <p className="auth-subtitle">Login to continue</p>
 
-
                 {status === "failed" && (
-                    <p style={{ color: "red", textAlign: "center", marginBottom: "10px" }}>
+                    <p className="auth-error">
                         {error || "Invalid email or password"}
                     </p>
                 )}
 
-                <form onSubmit={(e) => e.preventDefault()}>
+                <form onSubmit={handleSubmit}>
                     <label>Email</label>
                     <input
                         type="email"
+                        name="email"
                         placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={form.email}
+                        onChange={handleChange}
                     />
 
                     <label>Password</label>
                     <input
                         type="password"
+                        name="password"
                         placeholder="Enter your password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={form.password}
+                        onChange={handleChange}
                     />
 
                     <button
-                        type="button"
+                        type="submit"
                         className="auth-btn"
-                        onClick={handleLogin}
                         disabled={status === "loading"}
                     >
                         {status === "loading" ? "Logging in..." : "Login"}
@@ -58,7 +82,7 @@ export default function Login() {
                 </form>
 
                 <p className="auth-switch">
-                    Don't have an account? <a href="/register">Register</a>
+                    Don’t have an account? <a href="/register">Register</a>
                 </p>
             </div>
         </section>

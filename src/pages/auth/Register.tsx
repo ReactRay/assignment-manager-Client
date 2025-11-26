@@ -1,22 +1,39 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { registerUser } from "../../actions/authActions";
+import { registerThunk } from "../../redux/auth/authThunks";
+import { type RootState } from "../../redux";
+import type { RegisterDto } from "../../types/auth";
 
 export default function Register() {
-    const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    const role = "Student";
-
     const dispatch = useDispatch<any>();
     const navigate = useNavigate();
 
-    const { status, error } = useSelector((state: any) => state.auth);
+    const { status, error } = useSelector((state: RootState) => state.auth);
 
-    const handleRegister = () => {
-        dispatch(registerUser(fullName, email, password, role, navigate) as any);
+    const [form, setForm] = useState<RegisterDto>({
+        fullName: "",
+        email: "",
+        password: "",
+        role: "Student",
+    });
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const { name, value } = e.target;
+        setForm(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        try {
+            await dispatch(registerThunk(form)).unwrap();
+            navigate("/login");
+        } catch (_) {
+
+        }
     };
 
     return (
@@ -31,37 +48,37 @@ export default function Register() {
                     </p>
                 )}
 
-                <form onSubmit={(e) => e.preventDefault()}>
+                <form onSubmit={handleSubmit}>
                     <label>Full Name</label>
                     <input
                         type="text"
+                        name="fullName"
                         placeholder="Enter your full name"
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
+                        value={form.fullName}
+                        onChange={handleChange}
                     />
 
                     <label>Email</label>
                     <input
                         type="email"
+                        name="email"
                         placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={form.email}
+                        onChange={handleChange}
                     />
 
                     <label>Password</label>
                     <input
                         type="password"
+                        name="password"
                         placeholder="Create a password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={form.password}
+                        onChange={handleChange}
                     />
 
-
-
                     <button
-                        type="button"
+                        type="submit"
                         className="auth-btn"
-                        onClick={handleRegister}
                         disabled={status === "loading"}
                     >
                         {status === "loading" ? "Creating..." : "Register"}
