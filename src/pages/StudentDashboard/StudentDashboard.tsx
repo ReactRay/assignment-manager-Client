@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAssignments } from "../../redux/assignments/assignmentThunks";
 import AssignmentTable from "../../components/student-dashboard/AssignmentTable";
 
+// Icons
+import { FiBookOpen, FiLoader } from "react-icons/fi";
+
 export default function StudentDashboard() {
     const dispatch = useDispatch<any>();
     const { list, loading } = useSelector((s: any) => s.assignments);
@@ -14,10 +17,14 @@ export default function StudentDashboard() {
 
     return (
         <section className="student-dashboard">
-            <h2 className="student-dashboard__title">Student Dashboard</h2>
+            <h2 className="student-dashboard__title">
+                Student Dashboard  <FiBookOpen />
+            </h2>
 
             {loading ? (
-                <p className="student-dashboard__loading">Loading...</p>
+                <p className="student-dashboard__loading">
+                    <FiLoader className="spin" /> Loading...
+                </p>
             ) : (
                 <div className="student-dashboard__table-wrapper">
                     <AssignmentTable assignments={list} />

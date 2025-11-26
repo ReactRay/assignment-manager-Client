@@ -3,6 +3,9 @@ import SubmissionStatusBadge from "./SubmissionBadge";
 import SubmitModal from "./SubmitModal";
 import './studentDashboardStyles/assignmentRow.css';
 
+// Icon
+import { FiEdit } from "react-icons/fi";
+
 export default function AssignmentRow({ assignment, refresh }: any) {
     const [open, setOpen] = useState(false);
 
@@ -37,7 +40,7 @@ export default function AssignmentRow({ assignment, refresh }: any) {
                         className="studentassign-submit-btn"
                         onClick={() => setOpen(true)}
                     >
-                        Submit
+                        <FiEdit /> Submit
                     </button>
                 </td>
             </tr>

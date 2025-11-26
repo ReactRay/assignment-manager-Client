@@ -99,3 +99,39 @@
         align-items: stretch;
     }
 }
+
+/* Custom upload box */
+.submitmodal-uploadbox {
+    width: 100%;
+    padding: var(--space-5);
+    background: var(--bg-light);
+    border: 2px dashed #c6d4ec;
+    border-radius: var(--radius-md);
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: var(--space-5);
+    transition: 0.2s ease;
+}
+
+.submitmodal-uploadbox:hover {
+    border-color: var(--blue-main);
+    background: #eef4ff;
+}
+
+.upload-icon {
+    font-size: 2rem;
+    color: var(--blue-main);
+    margin-bottom: 8px;
+}
+
+.file-selected {
+    font-weight: 600;
+    color: var(--blue-main);
+}
+
+/* Icons inside buttons */
+.submitmodal-btn svg {
+    margin-right: 6px;
+    vertical-align: middle;
+    font-size: 1.1rem;
+}
