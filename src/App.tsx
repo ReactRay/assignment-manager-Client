@@ -14,7 +14,7 @@ import Guide from "./pages/guide/Guide";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 
-
+import BlockedForAuthRoute from "./components/BlockedForAuthRoute";
 import RoleRoute from "./components/RoleRoute";
 
 function App() {
@@ -29,8 +29,18 @@ function App() {
         <Route path="/guide" element={<Guide />} />
 
         {/* Public Auth Routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={
+
+          <BlockedForAuthRoute>
+            <Login />
+          </BlockedForAuthRoute>} />
+
+
+
+        <Route path="/register" element={
+          <BlockedForAuthRoute>
+            <Register />
+          </BlockedForAuthRoute>} />
 
         {/* Student Route */}
         <Route
