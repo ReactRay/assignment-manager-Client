@@ -5,6 +5,9 @@ import { registerThunk } from "../../redux/auth/authThunks";
 import { type RootState } from "../../redux";
 import type { RegisterDto } from "../../types/auth";
 
+// Icons
+import { FiMail, FiLock, FiUser, FiUserPlus } from "react-icons/fi";
+
 export default function Register() {
     const dispatch = useDispatch<any>();
     const navigate = useNavigate();
@@ -18,9 +21,7 @@ export default function Register() {
         role: "Student",
     });
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setForm(prev => ({ ...prev, [name]: value }));
     };
@@ -31,9 +32,7 @@ export default function Register() {
         try {
             await dispatch(registerThunk(form)).unwrap();
             navigate("/login");
-        } catch (_) {
-
-        }
+        } catch (_) { }
     };
 
     return (
@@ -43,45 +42,57 @@ export default function Register() {
                 <p className="auth-subtitle">Join our platform</p>
 
                 {status === "failed" && (
-                    <p style={{ color: "red", marginBottom: "10px", textAlign: "center" }}>
-                        {error || "Registration failed"}
-                    </p>
+                    <p className="auth-error">{error || "Registration failed"}</p>
                 )}
 
                 <form onSubmit={handleSubmit}>
+
                     <label>Full Name</label>
-                    <input
-                        type="text"
-                        name="fullName"
-                        placeholder="Enter your full name"
-                        value={form.fullName}
-                        onChange={handleChange}
-                    />
+                    <div className="input-wrapper">
+                        <FiUser />
+                        <input
+                            type="text"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            value={form.fullName}
+                            onChange={handleChange}
+                        />
+                    </div>
 
                     <label>Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        value={form.email}
-                        onChange={handleChange}
-                    />
+                    <div className="input-wrapper">
+                        <FiMail />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            value={form.email}
+                            onChange={handleChange}
+                        />
+                    </div>
 
                     <label>Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Create a password"
-                        value={form.password}
-                        onChange={handleChange}
-                    />
+                    <div className="input-wrapper">
+                        <FiLock />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Create a password"
+                            value={form.password}
+                            onChange={handleChange}
+                        />
+                    </div>
 
                     <button
                         type="submit"
                         className="auth-btn"
                         disabled={status === "loading"}
                     >
-                        {status === "loading" ? "Creating..." : "Register"}
+                        {status === "loading" ? "Creating..." : (
+                            <>
+                                <FiUserPlus /> Register
+                            </>
+                        )}
                     </button>
                 </form>
 

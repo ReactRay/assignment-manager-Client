@@ -118,3 +118,9 @@
         display: block;
     }
 }
+
+.nav-links li a svg,
+.mobile-menu li a svg,
+.logout-btn svg {
+    margin-right: 6px;
+}

@@ -124,3 +124,27 @@
         padding: var(--space-6);
     }
 }
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.input-wrapper svg {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1rem;
+}

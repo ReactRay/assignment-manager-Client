@@ -5,6 +5,9 @@ import { loginThunk } from "../../redux/auth/authThunks";
 import { type RootState } from "../../redux";
 import "./auth.css";
 
+// Icons
+import { FiMail, FiLock, FiLogIn } from "react-icons/fi";
+
 export default function Login() {
     const dispatch = useDispatch<any>();
     const navigate = useNavigate();
@@ -16,9 +19,7 @@ export default function Login() {
         password: "",
     });
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setForm(prev => ({ ...prev, [name]: value }));
     };
@@ -36,9 +37,7 @@ export default function Login() {
             else if (role === "Teacher") navigate("/teacher");
             else navigate("/student");
 
-        } catch (_) {
-            //redux will handle
-        }
+        } catch (_) { }
     };
 
     return (
@@ -55,29 +54,39 @@ export default function Login() {
 
                 <form onSubmit={handleSubmit}>
                     <label>Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        value={form.email}
-                        onChange={handleChange}
-                    />
+                    <div className="input-wrapper">
+                        <FiMail />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            value={form.email}
+                            onChange={handleChange}
+                        />
+                    </div>
 
                     <label>Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Enter your password"
-                        value={form.password}
-                        onChange={handleChange}
-                    />
+                    <div className="input-wrapper">
+                        <FiLock />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            value={form.password}
+                            onChange={handleChange}
+                        />
+                    </div>
 
                     <button
                         type="submit"
                         className="auth-btn"
                         disabled={status === "loading"}
                     >
-                        {status === "loading" ? "Logging in..." : "Login"}
+                        {status === "loading" ? "Logging in..." : (
+                            <>
+                                <FiLogIn /> Login
+                            </>
+                        )}
                     </button>
                 </form>
 

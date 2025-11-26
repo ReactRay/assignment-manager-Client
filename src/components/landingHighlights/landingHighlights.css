@@ -79,3 +79,13 @@
         transform: translateY(0);
     }
 }
+
+.lh-card-title svg {
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.lh-card ul li svg {
+    margin-right: 8px;
+    vertical-align: middle;
+}

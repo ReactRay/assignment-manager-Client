@@ -1,4 +1,14 @@
 import "./landingHighlights.css";
+import {
+    FiUsers,
+    FiUserCheck,
+    FiKey,
+    FiTool,
+    FiBook,
+    FiUpload,
+    FiCheckCircle,
+    FiBarChart2
+} from "react-icons/fi";
 
 export default function LandingHighlights() {
     return (
@@ -13,23 +23,23 @@ export default function LandingHighlights() {
 
                 {/* LEFT LIST */}
                 <div className="lh-card">
-                    <h3 className="lh-card-title">🔐 Admin Features</h3>
+                    <h3 className="lh-card-title"><FiKey /> Admin Features</h3>
                     <ul>
-                        <li>Manage users</li>
-                        <li>Create accounts</li>
-                        <li>Assign and remove roles</li>
-                        <li>Access all system tools</li>
+                        <li><FiUsers /> Manage users</li>
+                        <li><FiUserCheck /> Create accounts</li>
+                        <li><FiKey /> Assign and remove roles</li>
+                        <li><FiTool /> Access all system tools</li>
                     </ul>
                 </div>
 
                 {/* RIGHT LIST */}
                 <div className="lh-card">
-                    <h3 className="lh-card-title">📚 Teacher & Student</h3>
+                    <h3 className="lh-card-title"><FiBook /> Teacher & Student</h3>
                     <ul>
-                        <li>View tasks & assignments</li>
-                        <li>Upload submissions</li>
-                        <li>Review student work</li>
-                        <li>Track progress</li>
+                        <li><FiBook /> View tasks & assignments</li>
+                        <li><FiUpload /> Upload submissions</li>
+                        <li><FiCheckCircle /> Review student work</li>
+                        <li><FiBarChart2 /> Track progress</li>
                     </ul>
                 </div>
 
