@@ -12,7 +12,7 @@ import { type RootState } from "../../redux/index";
 import { FiShield, FiUser, FiMail, FiLock, FiUserPlus } from "react-icons/fi";
 
 export default function CreateUserPage() {
-    const dispatch = useDispatch<any>();
+    const dispatch = useDispatch();
     const { loading, error } = useSelector((state: RootState) => state.admin);
 
     const [form, setForm] = useState({
@@ -55,7 +55,7 @@ export default function CreateUserPage() {
 
             <form className="create-user-form" onSubmit={handleSubmit}>
 
-                {/* ROLE */}
+
                 <label>Role</label>
                 <div className="input-wrapper">
                     <FiShield />
@@ -71,7 +71,7 @@ export default function CreateUserPage() {
                     </select>
                 </div>
 
-                {/* FULL NAME */}
+
                 <label>Full Name</label>
                 <div className="input-wrapper">
                     <FiUser />
@@ -85,7 +85,7 @@ export default function CreateUserPage() {
                     />
                 </div>
 
-                {/* EMAIL */}
+
                 <label>Email</label>
                 <div className="input-wrapper">
                     <FiMail />
@@ -99,7 +99,7 @@ export default function CreateUserPage() {
                     />
                 </div>
 
-                {/* PASSWORD */}
+
                 <label>Password</label>
                 <div className="input-wrapper">
                     <FiLock />

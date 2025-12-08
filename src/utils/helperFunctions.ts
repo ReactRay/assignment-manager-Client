@@ -12,7 +12,7 @@ export function filterUsers(
 ) {
     let result = [...users];
 
-    // --- 1️⃣ FILTER BY SEARCH TEXT (name or email) ---
+    // filter by text email or name
     if (search.trim() !== "") {
         const lower = search.toLowerCase();
         result = result.filter(
@@ -22,7 +22,7 @@ export function filterUsers(
         );
     }
 
-    // --- 2️⃣ FILTER BY ROLE ---
+    // filter by role 
     if (roleFilter !== "All") {
         result = result.filter((u) => u.roles.includes(roleFilter));
     }

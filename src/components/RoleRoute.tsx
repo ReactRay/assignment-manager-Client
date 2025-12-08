@@ -6,7 +6,7 @@ export default function RoleRoute({ children, allowed }: any) {
     const { isAuthenticated, user, loaded } = useSelector((s: any) => s.auth);
 
     // Wait until auth is loaded
-    if (!loaded) return null;  // or a spinner
+    if (!loaded) return null;
 
     if (!isAuthenticated) return <Navigate to="/login" replace />;
 

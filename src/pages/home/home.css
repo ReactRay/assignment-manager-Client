@@ -35,7 +35,7 @@
 
 }
 
-/* RIGHT SIDE (IMAGE) */
+
 .home-right {
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@
     user-select: none;
 }
 
-/* Cute float animation */
+
 @keyframes float {
     0% {
         transform: translateY(0px);
