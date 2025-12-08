@@ -4,13 +4,11 @@ import { type LoginDto, type RegisterDto, type LoginResponse } from "../types/au
 const AUTH_URL = "/Auth";
 
 export const authApi = {
-    // LOGIN
     login: async (data: LoginDto): Promise<LoginResponse> => {
         const res = await axiosClient.post<LoginResponse>(`${AUTH_URL}/login`, data);
         return res.data;
     },
 
-    // REGISTER
     register: async (data: RegisterDto): Promise<any> => {
         const res = await axiosClient.post(`${AUTH_URL}/register`, data);
         return res.data;

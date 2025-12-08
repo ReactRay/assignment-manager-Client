@@ -8,11 +8,11 @@ export const submitAssignment = (formData: FormData) =>
     api.post("/submissions", formData);
 
 
-// (Optional for teacher) Grade submission
+// give grade , teacher or admin 
 export const gradeSubmission = (submissionId: string, grade: number) =>
     api.put(`/Submissions/${submissionId}/grade`, { grade });
 
 
-// (Optional for teacher/admin) Get submissions for one assignment
+// get submissions for one assignment , use assignment id here 
 export const getSubmissionsForAssignment = (assignmentId: string) =>
     api.get(`/Submissions/assignment/${assignmentId}`);

@@ -1,21 +1,21 @@
 import api from "./axiosClient";
 
-// Get ALL assignments (Student or Teacher)
+// get all assignments students or teachers
 export const getAllAssignments = () => api.get("/Assignments");
 
-// Get ONE assignment by ID (for later)
+// get one assignment by id
 export const getAssignmentById = (id: string) =>
     api.get(`/Assignments/${id}`);
 
-// (Teacher only) Create assignment
+// create assignment , teacher or admin
 export const createAssignment = (data: any) =>
     api.post("/Assignments", data);
 
-// (Teacher only) Update assignment
+// update assignment teacher or admin
 export const updateAssignment = (id: string, data: any) =>
     api.put(`/Assignments/${id}`, data);
 
-// (Teacher only) Delete assignment
+// delete assignment teacher or admin
 export const deleteAssignment = (id: string) =>
     api.delete(`/Assignments/${id}`);
 

@@ -46,7 +46,6 @@ const adminSlice = createSlice({
             state.error = null;
         });
 
-        builder.addCase(assignRoleThunk.fulfilled, (_) => { }); // cleaned
 
         builder.addCase(assignRoleThunk.rejected, (state, action) => {
             state.error = action.error.message || "Failed to assign role";
@@ -57,24 +56,42 @@ const adminSlice = createSlice({
             state.error = null;
         });
 
-        builder.addCase(removeRoleThunk.fulfilled, (_) => { }); // cleaned
 
         builder.addCase(removeRoleThunk.rejected, (state, action) => {
             state.error = action.error.message || "Failed to remove role";
         });
 
         //create user admin/student/teacherr
-        builder.addCase(createAdminThunk.rejected, (state, action) => {
-            state.error = action.error.message || "Failed to create admin";
+
+        builder.addCase(createAdminThunk.pending, (state) => {
+            state.loading = true;
+            state.error = null;
         });
 
-        builder.addCase(createTeacherThunk.rejected, (state, action) => {
-            state.error = action.error.message || "Failed to create teacher";
+        builder.addCase(createAdminThunk.fulfilled, (state) => {
+            state.loading = false;
         });
 
-        builder.addCase(createStudentThunk.rejected, (state, action) => {
-            state.error = action.error.message || "Failed to create student";
+
+        builder.addCase(createTeacherThunk.pending, (state) => {
+            state.loading = true;
+            state.error = null;
         });
+
+        builder.addCase(createTeacherThunk.fulfilled, (state) => {
+            state.loading = false;
+        });
+
+
+        builder.addCase(createStudentThunk.pending, (state) => {
+            state.loading = true;
+            state.error = null;
+        });
+
+        builder.addCase(createStudentThunk.fulfilled, (state) => {
+            state.loading = false;
+        });
+
     },
 });
 
