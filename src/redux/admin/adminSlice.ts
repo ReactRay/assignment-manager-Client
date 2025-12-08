@@ -25,7 +25,7 @@ const adminSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        // FETCH USERS
+        //fetch users
         builder.addCase(fetchUsersThunk.pending, (state) => {
             state.loading = true;
             state.error = null;
@@ -41,7 +41,7 @@ const adminSlice = createSlice({
             state.error = action.error.message || "Error loading users";
         });
 
-        // ASSIGN ROLE
+        //assign role 
         builder.addCase(assignRoleThunk.pending, (state) => {
             state.error = null;
         });
@@ -52,7 +52,7 @@ const adminSlice = createSlice({
             state.error = action.error.message || "Failed to assign role";
         });
 
-        // REMOVE ROLE
+        //remove role
         builder.addCase(removeRoleThunk.pending, (state) => {
             state.error = null;
         });
@@ -63,7 +63,7 @@ const adminSlice = createSlice({
             state.error = action.error.message || "Failed to remove role";
         });
 
-        // CREATE ADMIN/TEACHER/STUDENT
+        //create user admin/student/teacherr
         builder.addCase(createAdminThunk.rejected, (state, action) => {
             state.error = action.error.message || "Failed to create admin";
         });

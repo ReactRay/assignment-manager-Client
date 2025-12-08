@@ -1,4 +1,3 @@
-// src/redux/admin/adminThunks.ts
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
     getAllUsers,
@@ -9,7 +8,7 @@ import {
     createStudent,
 } from "../../api/adminApi";
 
-// ---- FETCH ALL USERS ----
+//fetch users
 export const fetchUsersThunk = createAsyncThunk(
     "admin/fetchUsers",
     async () => {
@@ -18,7 +17,7 @@ export const fetchUsersThunk = createAsyncThunk(
     }
 );
 
-// ---- ASSIGN ROLE TO USER ----
+//assign role to user
 export const assignRoleThunk = createAsyncThunk(
     "admin/assignRole",
     async (
@@ -26,13 +25,13 @@ export const assignRoleThunk = createAsyncThunk(
         { dispatch }
     ) => {
         await assignRole(userId, roleName);
-        // Refresh users so UI updates
+
         await dispatch(fetchUsersThunk());
         return true;
     }
 );
 
-// ---- REMOVE ROLE FROM USER ----
+//remove role from user
 export const removeRoleThunk = createAsyncThunk(
     "admin/removeRole",
     async (
@@ -46,7 +45,7 @@ export const removeRoleThunk = createAsyncThunk(
     }
 );
 
-// ---- CREATE ADMIN ----
+
 export const createAdminThunk = createAsyncThunk(
     "admin/createAdmin",
     async (data: any, { dispatch }) => {
@@ -56,7 +55,7 @@ export const createAdminThunk = createAsyncThunk(
     }
 );
 
-// ---- CREATE TEACHER ----
+
 export const createTeacherThunk = createAsyncThunk(
     "admin/createTeacher",
     async (data: any, { dispatch }) => {
@@ -66,7 +65,7 @@ export const createTeacherThunk = createAsyncThunk(
     }
 );
 
-// ---- CREATE STUDENT ----
+
 export const createStudentThunk = createAsyncThunk(
     "admin/createStudent",
     async (data: any, { dispatch }) => {

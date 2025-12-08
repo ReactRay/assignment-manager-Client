@@ -120,9 +120,7 @@ export default function CreateUserPage() {
             </form>
 
             {error && <p className="status error">{error}</p>}
-            {!loading && !error && form.fullName === "" && (
-                <p className="status success">User created successfully!</p>
-            )}
+
         </div>
     );
 }
