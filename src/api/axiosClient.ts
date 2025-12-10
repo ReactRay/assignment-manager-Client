@@ -9,8 +9,8 @@ const axiosClient = axios.create({
     withCredentials: false,
 });
 
-console.log(import.meta.env.DEV)
-// Attach token
+
+
 axiosClient.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem("token");
@@ -22,7 +22,6 @@ axiosClient.interceptors.request.use(
     (error) => Promise.reject(error)
 );
 
-// Handle 401/403
 axiosClient.interceptors.response.use(
     (response) => response,
     (error) => {

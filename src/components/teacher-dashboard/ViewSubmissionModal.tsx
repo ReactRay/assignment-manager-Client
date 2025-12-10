@@ -27,15 +27,26 @@ export default function ViewSubmissionsModal({ assignmentId, title, close }: any
                 responseType: "blob",
             });
 
+            console.log(res.data, res.headers, 'download info')
             const mime = res.data.type;
-
             const header = res.headers["content-disposition"];
             let fileName = "file";
 
-            if (header && header.includes("filename=")) {
-                const match = header.match(/filename="?([^"]+)"?/);
-                if (match && match[1]) fileName = match[1];
+            if (header) {
+
+                const utf8Match = header.match(/filename\*\=UTF-8''([^;]+)/i);
+                if (utf8Match && utf8Match[1]) {
+                    fileName = decodeURIComponent(utf8Match[1]);
+                }
+                else {
+
+                    const asciiMatch = header.match(/filename="?([^";]+)"?/i);
+                    if (asciiMatch && asciiMatch[1]) {
+                        fileName = asciiMatch[1];
+                    }
+                }
             }
+
 
             const blob = new Blob([res.data], { type: mime });
             const url = window.URL.createObjectURL(blob);
